@@ -4,7 +4,7 @@ const WHATSAPP_PRIMARY = '5541997282177';
 
 const state = {
   view: 'shop',
-  products: loadProducts(),
+  products: [],
   cart: []
 };
 
