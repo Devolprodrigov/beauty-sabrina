@@ -8,11 +8,17 @@ const state = {
   cart: []
 };
 
-function loadProducts() {
-  const raw = localStorage.getItem(STORAGE_KEY);
-  if (raw) {
-    try { return JSON.parse(raw); } catch {}
+async function loadProductsFromServer() {
+  try {
+    const response = await fetch('products.json');
+    const data = await response.json();
+    state.products = data;
+    renderProducts();
+    renderAdmin();
+  } catch (e) {
+    console.error('Erro ao carregar produtos:', e);
   }
+}
   return [
     { id: 1, name: 'Pigmento Labial Rose', price: 150, stock: 10, category: 'Micropigmentação', image: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=800&auto=format&fit=crop', description: 'Pigmento de alta fixação e brilho natural para lábios perfeitos.' },
     { id: 2, name: 'Kit Cílios Volume Russo', price: 89.9, stock: 25, category: 'Cílios', image: 'https://images.unsplash.com/photo-1583001838478-220a0614f24c?w=800&auto=format&fit=crop', description: 'Fios leves e macios para um olhar marcante e sofisticado.' },
