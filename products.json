@@ -1,30 +1,29 @@
 [
   {
-  "id": 1,
-  "name": "Óleo de Rosa Mosqueta",
-  "price": 29.9,
-  "stock": 20,
-  "category": "Skincare",
-  "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Oleo-de-rosa-mosqueta.jpeg",
-  "description": "Produto hidratante e regenerador para cuidados com a pele."
-},
-  
+    "id": 1,
+    "name": "Óleo de Rosa Mosqueta",
+    "price": 29.9,
+    "stock": 20,
+    "category": "Skincare",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Oleo-de-rosa-mosqueta.jpeg",
+    "description": "Produto hidratante e regenerador para cuidados com a pele."
+  },
   {
-  "id": 2,
-  "name": "Kit Cílios Volume Russo",
-  "price": 89.9,
-  "stock": 15,
-  "category": "Cílios",
-  "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/tesoura.jpeg",
-  "description": "Fios leves e sofisticados para um olhar marcante."
-}
-  {"id": 3,
-  "name": "Kit Cílios Volume Russo",
-  "price": 89.9,
-  "stock": 15,
-  "category": "Cílios",
-  "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/agulha-1ponta.jpeg",
-  "description": "Fios leves e sofisticados para um olhar marcante."
-}
-   
+    "id": 2,
+    "name": "Kit Cílios Volume Russo",
+    "price": 89.9,
+    "stock": 15,
+    "category": "Cílios",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/tesoura.jpeg",
+    "description": "Fios leves e sofisticados para um olhar marcante."
+  },
+  {
+    "id": 3,
+    "name": "Agulha 1 Ponta",
+    "price": 89.9,
+    "stock": 15,
+    "category": "Cílios",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/agulha-1ponta.jpeg",
+    "description": "Fios leves e sofisticados para um olhar marcante."
+  }
 ]
