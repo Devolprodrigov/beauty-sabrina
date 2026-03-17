@@ -5,8 +5,8 @@
     "price": 29.9,
     "stock": 20,
     "category": "Skincare",
-    "image": "https://devloprodrigov.github.io/beauty-sabrina/images/oleo-de-rosa-mosqueta.jpeg",
-    "description": "Produto hidratante e regenerador"
+    "image": "https://SEU-USUARIO.github.io/SEU-REPOSITORIO/images/oleo-de-rosa-mosqueta.jpeg",
+    "description": "Produto hidratante e regenerador para cuidados com a pele."
   },
   {
     "id": 2,
@@ -14,7 +14,16 @@
     "price": 9.9,
     "stock": 50,
     "category": "Maquiagem",
-    "image": "https://devloprodrigov.github.io/beauty-sabrina/images/esponja.jpeg",
-    "description": "Macia e perfeita para base"
+    "image": "https://SEU-USUARIO.github.io/SEU-REPOSITORIO/images/esponja-maquiagem.jpeg",
+    "description": "Esponja macia ideal para aplicação uniforme de base e corretivo."
+  },
+  {
+    "id": 3,
+    "name": "Kit Cílios Volume Russo",
+    "price": 89.9,
+    "stock": 15,
+    "category": "Cílios",
+    "image": "https://SEU-USUARIO.github.io/SEU-REPOSITORIO/images/kit-cilios-volume-russo.jpeg",
+    "description": "Fios leves e sofisticados para um olhar marcante."
   }
 ]
