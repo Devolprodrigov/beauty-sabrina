@@ -1,1 +1,20 @@
-
+[
+  {
+    "id": 1,
+    "name": "Óleo de Rosa Mosqueta",
+    "price": 29.9,
+    "stock": 20,
+    "category": "Skincare",
+    "image": "https://devloprodrigov.github.io/beauty-sabrina/images/oleo-de-rosa-mosqueta.jpeg",
+    "description": "Produto hidratante e regenerador"
+  },
+  {
+    "id": 2,
+    "name": "Esponja de Maquiagem",
+    "price": 9.9,
+    "stock": 50,
+    "category": "Maquiagem",
+    "image": "https://devloprodrigov.github.io/beauty-sabrina/images/esponja.jpeg",
+    "description": "Macia e perfeita para base"
+  }
+]
