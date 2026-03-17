@@ -5,8 +5,7 @@ const WHATSAPP_PRIMARY = '5541997282177';
 const state = {
   view: 'shop',
   products: loadProducts(),
-  cart: [],
-  uploadedImageBase64: ''
+  cart: []
 };
 
 function loadProducts() {
@@ -205,7 +204,7 @@ function renderAdmin() {
           <input type="number" step="1" value="${Number(product.stock)}" onchange="updateProductField(${product.id}, 'stock', this.value)">
         </div>
         <input type="text" value="${escapeAttr(product.category || '')}" onchange="updateProductField(${product.id}, 'category', this.value)">
-        <input type="file" accept="image/*" onchange="updateProductImage(${product.id}, this)">
+        <input type="text" value="${escapeAttr(product.image || '')}" placeholder="Cole a URL da imagem" onchange="updateProductField(${product.id}, 'image', this.value)">
       </div>
       <div class="admin-actions">
         <button class="delete-btn" onclick="deleteProduct(${product.id})">Excluir</button>
@@ -217,26 +216,19 @@ function renderAdmin() {
 function updateProductField(id, field, value) {
   const product = state.products.find(p => p.id === id);
   if (!product) return;
-  if (field === 'price') product[field] = Number(value) || 0;
-  else if (field === 'stock') product[field] = Math.max(0, parseInt(value || 0, 10));
-  else product[field] = value;
+
+  if (field === 'price') {
+    product[field] = Number(value) || 0;
+  } else if (field === 'stock') {
+    product[field] = Math.max(0, parseInt(value || 0, 10));
+  } else if (field === 'image') {
+    product[field] = value.trim() || DEFAULT_IMAGE;
+  } else {
+    product[field] = value;
+  }
+
   saveProducts();
   renderProducts();
-}
-
-function updateProductImage(id, input) {
-  const file = input.files?.[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = () => {
-    const product = state.products.find(p => p.id === id);
-    if (!product) return;
-    product.image = reader.result;
-    saveProducts();
-    renderProducts();
-    renderAdmin();
-  };
-  reader.readAsDataURL(file);
 }
 
 function deleteProduct(id) {
@@ -255,10 +247,13 @@ function addProductFromForm() {
   const stock = Math.max(0, parseInt(document.getElementById('newStock').value || 0, 10));
   const category = document.getElementById('newCategory').value.trim() || 'Geral';
   const description = document.getElementById('newDescription').value.trim();
+  const image = document.getElementById('newImageUrl')?.value.trim() || DEFAULT_IMAGE;
+
   if (!name || !price) {
     alert('Preencha pelo menos nome e preço.');
     return;
   }
+
   state.products.unshift({
     id: Date.now(),
     name,
@@ -266,8 +261,9 @@ function addProductFromForm() {
     stock,
     category,
     description,
-    image: state.uploadedImageBase64 || DEFAULT_IMAGE
+    image
   });
+
   saveProducts();
   clearForm();
   renderProducts();
@@ -276,11 +272,10 @@ function addProductFromForm() {
 }
 
 function clearForm() {
-  ['newName','newPrice','newStock','newCategory','newDescription','newImageFile'].forEach(id => {
+  ['newName','newPrice','newStock','newCategory','newDescription','newImageUrl'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.value = '';
   });
-  state.uploadedImageBase64 = '';
 }
 
 async function exportPDF() {
@@ -349,13 +344,6 @@ function bindEvents() {
   document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', () => setView(btn.dataset.view)));
   document.getElementById('addProductBtn').addEventListener('click', addProductFromForm);
   document.getElementById('exportPdfBtn').addEventListener('click', exportPDF);
-  document.getElementById('newImageFile').addEventListener('change', e => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    const reader = new FileReader();
-    reader.onload = () => { state.uploadedImageBase64 = reader.result; };
-    reader.readAsDataURL(file);
-  });
 }
 
 window.changeQty = changeQty;
@@ -363,7 +351,6 @@ window.addToCart = addToCart;
 window.removeFromCart = removeFromCart;
 window.finishOrder = finishOrder;
 window.updateProductField = updateProductField;
-window.updateProductImage = updateProductImage;
 window.deleteProduct = deleteProduct;
 
 bindEvents();
