@@ -360,8 +360,7 @@ window.updateProductField = updateProductField;
 window.deleteProduct = deleteProduct;
 
 bindEvents();
-renderProducts();
 renderCart();
-renderAdmin();
 updateCartCount();
 setView('shop');
+loadProductsFromServer();
