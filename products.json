@@ -1,9 +1,9 @@
 [
 {"id":1,"name":"Óleo de Rosa Mosqueta","price":18.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/Oleo-de-rosa-mosqueta.jpeg","description":"Óleo rico em vitaminas que hidrata profundamente, auxilia na regeneração da pele e reduz manchas."},
 
-{"id":2,"name":"Pisseta 23FR12","price":9.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Recipiente prático para aplicação de líquidos em procedimentos estéticos."},
+{"id":2,"name":"Pisseta","price":9.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pisseta.jpeg","description":"Recipiente prático para aplicação de líquidos em procedimentos estéticos."},
 
-{"id":3,"name":"Máscara de Cílios Playboy","price":21.9,"stock":10,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Máscara que proporciona volume, definição e alongamento aos cílios."},
+{"id":3,"name":"Máscara de Cílios Playboy","price":21.9,"stock":10,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/mascara-playboy.jpeg","description":"Máscara que proporciona volume, definição e alongamento aos cílios."},
 
 {"id":4,"name":"Creme Removedor","price":27.5,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Removedor eficaz para procedimentos estéticos com segurança."},
 
