@@ -9,13 +9,13 @@
 
 {"id":5,"name":"Magic Lipstick","price":39.99,"stock":6,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/po-magico.jpeg","description":"Batom de alta durabilidade que realça a cor natural dos lábios."},
 
-{"id":6,"name":"Colar","price":19.9,"stock":8,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Colar moderno ideal para compor looks elegantes."},
+{"id":6,"name":"Mixer","price":49.90,"stock":8,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/mixer-tinta.jpeg","description":"Colar moderno ideal para compor looks elegantes."},
 
 {"id":7,"name":"Colar Chocker Conjunto","price":19.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Conjunto de chokers para um visual estiloso e moderno."},
 
 {"id":8,"name":"Chocker Doze","price":23.9,"stock":1,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Chocker elegante que valoriza qualquer look."},
 
-{"id":9,"name":"Pulseira Sete","price":19.9,"stock":10,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pulseira versátil ideal para uso diário."},
+{"id":9,"name":"Pacote Fita Micropole","price":19.9,"stock":10,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/micropole-fina.jpeg","description":"Pulseira versátil ideal para uso diário."},
 
 {"id":10,"name":"Pulseira Seis","price":19.9,"stock":1,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pulseira moderna com acabamento delicado."},
 
