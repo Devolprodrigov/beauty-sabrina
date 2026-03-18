@@ -59,11 +59,11 @@
 
 {"id":30,"name":"Geleia Hidratante Alleva","price":22.9,"stock":10,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/geleia.jpeg","description":"Geleia hidratante que deixa a pele macia e iluminada."},
 
-{"id":31,"name":"Hidratante Corpo Alleva","price":16.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Hidratante corporal com rápida absorção."},
+{"id":31,"name":"Hidratante Corpo Alleva","price":16.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/sabonete-hidra.jpeg","description":"Hidratante corporal com rápida absorção."},
 
 {"id":32,"name":"Mousse Limpeza Alleva","price":19.9,"stock":27,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/alleva-limpeza.jpeg","description":"Mousse de limpeza que remove impurezas da pele."},
 
-{"id":33,"name":"Sabonete Líquido Alleva","price":16.9,"stock":2,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Sabonete líquido para limpeza suave da pele."},
+{"id":33,"name":"Sabonete Líquido Alleva","price":16.9,"stock":2,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/sabonete-hidra.jpeg","description":"Sabonete líquido para limpeza suave da pele."},
 
 {"id":34,"name":"Batom","price":5.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/batom-verde-dourado.jpeg","description":"Bracelete moderno para complementar o visual."},
 
