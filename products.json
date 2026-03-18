@@ -71,15 +71,15 @@
 
 {"id":36,"name":"Capilar Angles","price":34.9,"stock":2,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/capilife.jpeg","description":"Tratamento capilar que fortalece e hidrata o cabelo."},
 
-{"id":37,"name":"Mixer de Cola","price":49.9,"stock":3,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Misturador de cola para uso profissional."},
+{"id":37,"name":"Mixer de Cola","price":49.9,"stock":3,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/mixer-tinta.jpeg","description":"Misturador de cola para uso profissional."},
 
-{"id":38,"name":"Cílios JD W5D","price":36.9,"stock":5,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cílios para alongamento com efeito volumoso."},
+{"id":38,"name":"Cílios JD W5D","price":36.9,"stock":5,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/jd-5d.jpeg","description":"Cílios para alongamento com efeito volumoso."},
 
-{"id":39,"name":"Removedor Funmix","price":25.9,"stock":6,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Removedor de cola para cílios com ação rápida."},
+{"id":39,"name":"Removedor Glue","price":25.9,"stock":6,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/glue-removedor.jpeg","description":"Removedor de cola para cílios com ação rápida."},
 
-{"id":40,"name":"Cílios Nagaraku Y","price":24.9,"stock":5,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cílios profissionais para aplicação em volume."},
+{"id":40,"name":"Cílios Nagaraku Y","price":24.9,"stock":5,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/nagaraku-7d.jpeg","description":"Cílios profissionais para aplicação em volume."},
 
-{"id":41,"name":"Cílios Fadvan","price":36.9,"stock":15,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cílios de alta qualidade para resultados profissionais."},
+{"id":41,"name":"Cílios Fadvan","price":36.9,"stock":15,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/fadvam-5d-preto.jpeg","description":"Cílios de alta qualidade para resultados profissionais."},
 
 {"id":42,"name":"Fita Siliconada","price":5,"stock":10,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/fita-siliconada.jpeg","description":"Fita siliconada para procedimentos de cílios."},
 
