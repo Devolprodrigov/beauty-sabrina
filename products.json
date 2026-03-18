@@ -307,9 +307,9 @@
   },
   {
     "id": 35,
-    "name": "Fita Siliconada (pequena)",
-    "price": 5,
-    "stock": 10,
+    "name": "Fita Siliconada",
+    "price": 10.9,
+    "stock": 50,
     "category": "Descartáveis",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/fita-siliconada.jpeg",
     "description": "Fita siliconada pequena para procedimentos com cílios e acabamento delicado."
