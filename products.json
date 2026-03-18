@@ -434,7 +434,7 @@
   {
     "id": 49,
     "name": "PAC FITA MICROPORE",
-    "price": 10.9,
+    "price": 5,
     "stock": 50,
     "category": "Descartáveis",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/micropolo-antialergica.jpeg",
@@ -443,7 +443,7 @@
   {
     "id": 50,
     "name": "PAC FITA MICROPORE FINA",
-    "price": 5,
+    "price": 10.9,
     "stock": 36,
     "category": "Descartáveis",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/micropole-fina.jpeg",
