@@ -266,7 +266,7 @@
     "price": 65.9,
     "stock": 2,
     "category": "Cílios",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Cola Cherry Aurora 3G.jpeg",
     "description": "Cola para extensão de cílios com boa fixação e uso profissional."
   },
   {
@@ -275,7 +275,7 @@
     "price": 6.5,
     "stock": 72,
     "category": "Descartáveis",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Escovinhas para cilios.jpeg",
     "description": "Escovinhas práticas para pentear, alinhar e finalizar cílios e sobrancelhas."
   },
   {
@@ -338,7 +338,7 @@
     "price": 39.9,
     "stock": 5,
     "category": "Sobrancelha",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/HENNA CASTANHO ESCURO SHOCE.jpeg",
     "description": "Henna para sobrancelhas com cor castanho escuro e ótima definição."
   },
   {
@@ -410,7 +410,7 @@
     "price": 6.5,
     "stock": 36,
     "category": "Descartáveis",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Micro Blush.jpeg",
     "description": "Aplicadores descartáveis para procedimentos com mais higiene e precisão."
   },
   {
@@ -460,11 +460,11 @@
   },
   {
     "id": 52,
-    "name": "Palito De Maeira",
+    "name": "Palito De Madeira",
     "price": 3.99,
     "stock": 12,
     "category": "Descartáveis",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Palito De Maeira.jpeg",
     "description": "Palito de madeira para apoio e aplicação em procedimentos diversos."
   },
   {
@@ -491,7 +491,7 @@
     "price": 22.5,
     "stock": 20,
     "category": "Acessórios",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Pds adesivo.jpeg",
     "description": "Adesivo prático para organização e apoio em procedimentos."
   },
   {
@@ -509,7 +509,7 @@
     "price": 6.5,
     "stock": 40,
     "category": "Maquiagem",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg",
+    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Pincel aplicador de batom.jpeg",
     "description": "Pincel aplicador ideal para acabamento mais preciso nos lábios."
   },
   {
