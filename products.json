@@ -1,6 +1,5 @@
 [
-{"id":1,"name":"Óleo de Rosa Mosqueta","price":18.9,"stock":5,"category":"Skincare",
-  "image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/Oleo-de-rosa-mosqueta.jpeg","description":"Óleo rico em vitaminas que hidrata profundamente, auxilia na regeneração da pele e reduz manchas."},
+{"id":1,"name":"Óleo de Rosa Mosqueta","price":18.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/Oleo-de-rosa-mosqueta.jpeg","description":"Óleo rico em vitaminas que hidrata profundamente, auxilia na regeneração da pele e reduz manchas."},
 
 {"id":2,"name":"Pisseta 23FR12","price":9.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Recipiente prático para aplicação de líquidos em procedimentos estéticos."},
 
