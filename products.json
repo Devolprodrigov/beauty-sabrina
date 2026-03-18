@@ -5,7 +5,7 @@
 
 {"id":3,"name":"Máscara de Cílios Playboy","price":21.9,"stock":10,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/mascara-playboy.jpeg","description":"Máscara que proporciona volume, definição e alongamento aos cílios."},
 
-{"id":4,"name":"Creme Removedor","price":27.5,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Removedor eficaz para procedimentos estéticos com segurança."},
+{"id":4,"name":"Creme Removedor","price":27.5,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/removedor-navina.jpeg","description":"Removedor eficaz para procedimentos estéticos com segurança."},
 
 {"id":5,"name":"Magic Lipstick","price":39.99,"stock":6,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Batom de alta durabilidade que realça a cor natural dos lábios."},
 
