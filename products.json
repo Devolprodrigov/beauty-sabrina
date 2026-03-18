@@ -273,7 +273,7 @@
     "id": 31,
     "name": "ESCOVINHAS PARA CILIOS",
     "price": 6.5,
-    "stock": 72,
+    "stock": 36,
     "category": "Descartáveis",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Escovinhas para cilios.jpeg",
     "description": "Escovinhas práticas para pentear, alinhar e finalizar cílios e sobrancelhas."
@@ -379,7 +379,7 @@
   },
   {
     "id": 43,
-    "name": "LIFE CONOGRAMA CAPIL ANGLES",
+    "name": "KIT CRONOGRAMA CAPILAR ANGLES",
     "price": 34.9,
     "stock": 2,
     "category": "Cabelo",
@@ -388,7 +388,7 @@
   },
   {
     "id": 44,
-    "name": "LIFE CONOGRAMA CAPIL BABALIFE",
+    "name": "KIT CRONOGRAMA CAPILAR BABALIFE",
     "price": 34.9,
     "stock": 3,
     "category": "Cabelo",
@@ -442,9 +442,9 @@
   },
   {
     "id": 50,
-    "name": "PAC FITA MICROPORE FINA",
+    "name": "PCT FITA MICROPORE FINA",
     "price": 10.9,
-    "stock": 36,
+    "stock": 5,
     "category": "Descartáveis",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/micropole-fina.jpeg",
     "description": "Fita micropore fina ideal para trabalhos delicados e acabamento preciso."
@@ -496,7 +496,7 @@
   },
   {
     "id": 56,
-    "name": "PINCA P/ CILIOS ZOLO",
+    "name": "PINÇA PARA CILIOS ZOLO",
     "price": 14.99,
     "stock": 8,
     "category": "Ferramentas",
@@ -568,7 +568,7 @@
   },
   {
     "id": 64,
-    "name": "REMOVEDOR FUNMIX 5G MELANCIA",
+    "name": "REMOVEDOR FUNMIX GLUE",
     "price": 25.9,
     "stock": 3,
     "category": "Cílios",
