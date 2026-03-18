@@ -41,19 +41,19 @@
 
 {"id":21,"name":"Lenço Panda","price":6,"stock":24,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/lenco-panda.jpeg","description":"Lenços descartáveis ideais para limpeza e higiene."},
 
-{"id":22,"name":"Tesoura","price":17.99,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Tesoura de precisão para uso profissional."},
+{"id":22,"name":"Tesoura","price":17.99,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/tesoura.jpeg","description":"Tesoura de precisão para uso profissional."},
 
-{"id":23,"name":"Kit Pinça","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Kit com pinças para procedimentos detalhados."},
+{"id":23,"name":"Kit Pinça","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/kit-pinca-com3.jpeg","description":"Kit com pinças para procedimentos detalhados."},
 
-{"id":24,"name":"Pinça Curva","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pinça curva ideal para aplicação de cílios."},
+{"id":24,"name":"Pinça Curva","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pinca-zolo.jpeg","description":"Pinça curva ideal para aplicação de cílios."},
 
-{"id":25,"name":"Fita Micropore","price":10.9,"stock":5,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Fita para fixação em procedimentos estéticos."},
+{"id":25,"name":"Fita Micropore","price":10.9,"stock":5,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/micropolo-antialergica.jpeg","description":"Fita para fixação em procedimentos estéticos."},
 
-{"id":26,"name":"Primer Baut Kit","price":159.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Primer profissional que melhora a fixação dos cílios."},
+{"id":26,"name":"Kit Retenção","price":159.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/kit-beautify-3em1.jpeg","description":"Primer profissional que melhora a fixação dos cílios."},
 
-{"id":27,"name":"Pomada TKTX Pós","price":89.9,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pomada pós procedimento que auxilia na recuperação da pele."},
+{"id":27,"name":"Pomada TKTX Preta","price":89.9,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pomanda-tktx.jpeg","description":"Pomada pós procedimento que auxilia na recuperação da pele."},
 
-{"id":28,"name":"Pomada Anestésica TKTX 40g","price":69.9,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pomada anestésica que reduz desconfortos em procedimentos."},
+{"id":28,"name":"Pomada TKTX Verde","price":69.9,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pomanda-tktx.jpeg","description":"Pomada anestésica que reduz desconfortos em procedimentos."},
 
 {"id":29,"name":"Body Splash Alleva","price":25.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Body splash com fragrância suave e refrescante."},
 
@@ -81,13 +81,13 @@
 
 {"id":41,"name":"Cílios Fadvan","price":36.9,"stock":15,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cílios de alta qualidade para resultados profissionais."},
 
-{"id":42,"name":"Fita Siliconada","price":5,"stock":10,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Fita siliconada para procedimentos de cílios."},
+{"id":42,"name":"Fita Siliconada","price":5,"stock":10,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/fita-siliconada.jpeg","description":"Fita siliconada para procedimentos de cílios."},
 
-{"id":43,"name":"Dash Box","price":35.9,"stock":4,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Organizador para materiais de trabalho."},
+{"id":43,"name":"Dash Box","price":35.9,"stock":4,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/caixa-placas.jpeg","description":"Organizador para materiais de trabalho."},
 
 {"id":44,"name":"Cola Cherry Aurora","price":65.9,"stock":2,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cola profissional com alta fixação."},
 
-{"id":45,"name":"Cola Beautify","price":65.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cola resistente para alongamento de cílios."},
+{"id":45,"name":"Cola Beautify","price":65.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/cola-oxe.jpeg","description":"Cola resistente para alongamento de cílios."},
 
 {"id":46,"name":"Pinça para Cílios","price":14.99,"stock":8,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pinça ideal para aplicação precisa de cílios."},
 
@@ -97,5 +97,5 @@
 
 {"id":49,"name":"Frasco Plástico","price":9.99,"stock":12,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Frasco ideal para armazenamento de líquidos."},
 
-{"id":50,"name":"Esponja Maquiagem","price":5,"stock":60,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Esponja para aplicação uniforme de maquiagem."}
+{"id":50,"name":"Esponja Maquiagem","price":5,"stock":60,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/esponjinhas.jpeg","description":"Esponja para aplicação uniforme de maquiagem."}
 ]
