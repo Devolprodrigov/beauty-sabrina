@@ -7,7 +7,7 @@
 
 {"id":4,"name":"Creme Removedor","price":27.5,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/removedor-navina.jpeg","description":"Removedor eficaz para procedimentos estéticos com segurança."},
 
-{"id":5,"name":"Magic Lipstick","price":39.99,"stock":6,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Batom de alta durabilidade que realça a cor natural dos lábios."},
+{"id":5,"name":"Magic Lipstick","price":39.99,"stock":6,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/po-magico.jpeg","description":"Batom de alta durabilidade que realça a cor natural dos lábios."},
 
 {"id":6,"name":"Colar","price":19.9,"stock":8,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Colar moderno ideal para compor looks elegantes."},
 
@@ -25,21 +25,21 @@
 
 {"id":13,"name":"Henna Castanho Escuro","price":39.9,"stock":5,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Henna ideal para definição e preenchimento de sobrancelhas."},
 
-{"id":14,"name":"Paquímetro LY699","price":8,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Ferramenta de medição precisa para uso profissional."},
+{"id":14,"name":"Paquímetro","price":8,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/paquimetro.jpeg","description":"Ferramenta de medição precisa para uso profissional."},
 
-{"id":15,"name":"Ventilador 60704","price":34.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Ventilador compacto ideal para secagem rápida."},
+{"id":15,"name":"Ventilador","price":34.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/ventilador.jpeg","description":"Ventilador compacto ideal para secagem rápida."},
 
-{"id":16,"name":"Espelho","price":15.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Espelho prático para uso diário ou profissional."},
+{"id":16,"name":"Espelho","price":15.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/espelho.jpeg","description":"Espelho prático para uso diário ou profissional."},
 
-{"id":17,"name":"Papel Filme","price":27.5,"stock":10,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Filme plástico para proteção em procedimentos estéticos."},
+{"id":17,"name":"Papel Filme","price":27.5,"stock":10,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/filme-rolo.jpeg","description":"Filme plástico para proteção em procedimentos estéticos."},
 
-{"id":18,"name":"Gel Sobrancelha Melu","price":19.9,"stock":24,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Gel fixador que modela e define as sobrancelhas."},
+{"id":18,"name":"Gel Sobrancelha Melu","price":19.9,"stock":24,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/gel-modelador-melu.jpeg","description":"Gel fixador que modela e define as sobrancelhas."},
 
 {"id":19,"name":"Gel Sobrancelha HB","price":19.9,"stock":36,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Produto ideal para alinhamento e fixação dos fios."},
 
-{"id":20,"name":"Agulha Dermógrafo","price":6.4,"stock":225,"category":"Micropigmentação","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Agulha descartável para micropigmentação com alta precisão."},
+{"id":20,"name":"Agulha 1 ponta","price":6.4,"stock":225,"category":"Micropigmentação","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/agulha-1ponta.jpeg","description":"Agulha descartável para micropigmentação com alta precisão."},
 
-{"id":21,"name":"Lenço","price":6,"stock":24,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Lenços descartáveis ideais para limpeza e higiene."},
+{"id":21,"name":"Lenço Panda","price":6,"stock":24,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/lenco-panda.jpeg","description":"Lenços descartáveis ideais para limpeza e higiene."},
 
 {"id":22,"name":"Tesoura","price":17.99,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Tesoura de precisão para uso profissional."},
 
