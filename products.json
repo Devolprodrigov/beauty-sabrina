@@ -45,7 +45,7 @@
 
 {"id":23,"name":"Kit Pinça","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/kit-pinca-com3.jpeg","description":"Kit com pinças para procedimentos detalhados."},
 
-{"id":24,"name":"Pinça Curva","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pinca-zolo.jpeg","description":"Pinça curva ideal para aplicação de cílios."},
+{"id":24,"name":"Pinça Curva","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/kit-pinca-com3.jpeg","description":"Pinça curva ideal para aplicação de cílios."},
 
 {"id":25,"name":"Fita Micropore","price":10.9,"stock":5,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/micropolo-antialergica.jpeg","description":"Fita para fixação em procedimentos estéticos."},
 
@@ -89,9 +89,9 @@
 
 {"id":45,"name":"Cola Beautify","price":65.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/cola-oxe.jpeg","description":"Cola resistente para alongamento de cílios."},
 
-{"id":46,"name":"Pinça para Cílios","price":14.99,"stock":8,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pinça ideal para aplicação precisa de cílios."},
+{"id":46,"name":"Pinça para Cílios","price":14.99,"stock":8,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pinca-zolo.jpeg","description":"Pinça ideal para aplicação precisa de cílios."},
 
-{"id":47,"name":"Pote Spray","price":9.99,"stock":10,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Frasco spray para uso em procedimentos."},
+{"id":47,"name":"Pump Spray","price":9.99,"stock":10,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pump.jpeg","description":"Frasco spray para uso em procedimentos."},
 
 {"id":48,"name":"Micro Brush","price":6.5,"stock":36,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Aplicadores descartáveis para precisão em procedimentos."},
 
