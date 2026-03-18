@@ -127,7 +127,7 @@
   },
   {
     "id": 15,
-    "name": "Anel para Cola",
+    "name": "ANEL PARA COLA",
     "price": 11.9,
     "stock": 11,
     "category": "Acessórios",
@@ -136,7 +136,7 @@
   },
   {
     "id": 16,
-    "name": "Batok para Cola coração",
+    "name": "BATOK PARA COLA CORAÇÃO",
     "price": 10,
     "stock": 2,
     "category": "Acessórios",
@@ -145,7 +145,7 @@
   },
   {
     "id": 17,
-    "name": "Batom MAGIC LIPSTICK",
+    "name": "BATOM MAGIC LIPSTICK",
     "price": 39.99,
     "stock": 6,
     "category": "Maquiagem",
@@ -154,7 +154,7 @@
   },
   {
     "id": 18,
-    "name": "Caixa box lash",
+    "name": "CAIXA BOX LASH",
     "price": 35.9,
     "stock": 4,
     "category": "Acessórios",
@@ -163,7 +163,7 @@
   },
   {
     "id": 19,
-    "name": "Cilios Decemars W3D 0.07D Mix 8-14mm",
+    "name": "CILIOS DECEMARS W3D 0.07D MIX 8-14MM",
     "price": 36.9,
     "stock": 6,
     "category": "Cílios",
@@ -172,7 +172,7 @@
   },
   {
     "id": 20,
-    "name": "Cilios Decemars W5D 0.07D Mix 8-12/14mm Preto",
+    "name": "CILIOS DECEMARS W5D 0.07D MIX 8-12/14MM PRETO",
     "price": 36.9,
     "stock": 10,
     "category": "Cílios",
@@ -181,7 +181,7 @@
   },
   {
     "id": 21,
-    "name": "Cilios Decemars W5D 0.07D Mix 8-14mm Marrom",
+    "name": "CILIOS DECEMARS W5D 0.07D MIX 8-14MM MARROM",
     "price": 46.9,
     "stock": 4,
     "category": "Cílios",
@@ -190,7 +190,7 @@
   },
   {
     "id": 22,
-    "name": "Cílios Fadvan 5D 0,07D Mix 8-12/14mm",
+    "name": "CÍLIOS FADVAN 5D 0,07D MIX 8-12/14MM",
     "price": 36.9,
     "stock": 20,
     "category": "Cílios",
@@ -199,7 +199,7 @@
   },
   {
     "id": 23,
-    "name": "Cilios Fadvan W5D 0,07D Mix 8-14mm Marrom",
+    "name": "CILIOS FADVAN W5D 0,07D MIX 8-14MM MARROM",
     "price": 46.9,
     "stock": 5,
     "category": "Cílios",
@@ -208,7 +208,7 @@
   },
   {
     "id": 24,
-    "name": "Cilios Fadvan Y 0-07D Mix 8-14mm Preto",
+    "name": "CILIOS FADVAN Y 0-07D MIX 8-14MM PRETO",
     "price": 23.9,
     "stock": 5,
     "category": "Cílios",
@@ -217,7 +217,7 @@
   },
   {
     "id": 25,
-    "name": "Cilios JD W5D Mix",
+    "name": "CILIOS JD W5D MIX",
     "price": 36.9,
     "stock": 5,
     "category": "Cílios",
@@ -226,7 +226,7 @@
   },
   {
     "id": 26,
-    "name": "Cilios Maria-Sasha Lash W4D 0,07M Mix 8-14mm",
+    "name": "CILIOS MARIA-SASHA LASH W4D 0,07M MIX 8-14MM",
     "price": 46.9,
     "stock": 4,
     "category": "Cílios",
@@ -235,7 +235,7 @@
   },
   {
     "id": 27,
-    "name": "Cilios Nagaraku Y 0.07D Mix 8-14mm",
+    "name": "CILIOS NAGARAKU Y 0.07D MIX 8-14MM",
     "price": 24.9,
     "stock": 5,
     "category": "Cílios",
@@ -244,7 +244,7 @@
   },
   {
     "id": 28,
-    "name": "Cillos Fadvan double W6D 0.07D 8mm",
+    "name": "CILLOS FADVAN DOUBLE W6D 0.07D 8MM",
     "price": 36.9,
     "stock": 5,
     "category": "Cílios",
@@ -253,7 +253,7 @@
   },
   {
     "id": 29,
-    "name": "Cola Beautify Oxe",
+    "name": "COLA BEAUTIFY OXE",
     "price": 65.9,
     "stock": 3,
     "category": "Cílios",
@@ -262,7 +262,7 @@
   },
   {
     "id": 30,
-    "name": "Cola Cherry Aurora 3G",
+    "name": "COLA CHERRY AURORA 3G",
     "price": 65.9,
     "stock": 2,
     "category": "Cílios",
@@ -271,7 +271,7 @@
   },
   {
     "id": 31,
-    "name": "Escovinhas para cilios",
+    "name": "ESCOVINHAS PARA CILIOS",
     "price": 6.5,
     "stock": 72,
     "category": "Descartáveis",
@@ -289,7 +289,7 @@
   },
   {
     "id": 33,
-    "name": "Esponjinha para maquiagem",
+    "name": "ESPONJINHA PARA MAQUIAGEM",
     "price": 5,
     "stock": 60,
     "category": "Maquiagem",
@@ -298,7 +298,7 @@
   },
   {
     "id": 34,
-    "name": "Fita isolamente",
+    "name": "FITA ISOLAMENTE",
     "price": 5,
     "stock": 25,
     "category": "Descartáveis",
@@ -307,7 +307,7 @@
   },
   {
     "id": 35,
-    "name": "Fita Siliconada",
+    "name": "FITA SILICONADA",
     "price": 10.9,
     "stock": 50,
     "category": "Descartáveis",
@@ -316,7 +316,7 @@
   },
   {
     "id": 36,
-    "name": "GEL SOBRANCELHA Brow Rise",
+    "name": "GEL SOBRANCELHA BROW RISE",
     "price": 19.9,
     "stock": 36,
     "category": "Sobrancelha",
@@ -325,7 +325,7 @@
   },
   {
     "id": 37,
-    "name": "GEL SOBRANCELHA melu",
+    "name": "GEL SOBRANCELHA MELU",
     "price": 19.9,
     "stock": 24,
     "category": "Sobrancelha",
@@ -343,7 +343,7 @@
   },
   {
     "id": 39,
-    "name": "KIT PINCA 3em1",
+    "name": "KIT PINCA 3EM1",
     "price": 18.9,
     "stock": 2,
     "category": "Ferramentas",
@@ -352,7 +352,7 @@
   },
   {
     "id": 40,
-    "name": "kit PINCA CURVA 3em1",
+    "name": "KIT PINCA CURVA 3EM1",
     "price": 18.9,
     "stock": 2,
     "category": "Ferramentas",
@@ -361,7 +361,7 @@
   },
   {
     "id": 41,
-    "name": "KIT retenção",
+    "name": "KIT RETENÇÃO",
     "price": 159.9,
     "stock": 3,
     "category": "Cílios",
@@ -370,7 +370,7 @@
   },
   {
     "id": 42,
-    "name": "LENCO panda",
+    "name": "LENCO PANDA",
     "price": 6,
     "stock": 24,
     "category": "Descartáveis",
@@ -406,7 +406,7 @@
   },
   {
     "id": 46,
-    "name": "Micro Blush",
+    "name": "MICRO BLUSH",
     "price": 6.5,
     "stock": 36,
     "category": "Descartáveis",
@@ -415,7 +415,7 @@
   },
   {
     "id": 47,
-    "name": "Mixer de Cola",
+    "name": "MIXER DE COLA",
     "price": 49.9,
     "stock": 3,
     "category": "Ferramentas",
@@ -424,7 +424,7 @@
   },
   {
     "id": 48,
-    "name": "OLEO DE ROSA MOSQueta",
+    "name": "OLEO DE ROSA MOSQUETA",
     "price": 18.9,
     "stock": 5,
     "category": "Skincare",
@@ -433,7 +433,7 @@
   },
   {
     "id": 49,
-    "name": "PAC FITA Micropore",
+    "name": "PAC FITA MICROPORE",
     "price": 10.9,
     "stock": 50,
     "category": "Descartáveis",
@@ -442,7 +442,7 @@
   },
   {
     "id": 50,
-    "name": "PAC FITA MIcropore fina",
+    "name": "PAC FITA MICROPORE FINA",
     "price": 5,
     "stock": 36,
     "category": "Descartáveis",
@@ -451,7 +451,7 @@
   },
   {
     "id": 51,
-    "name": "PAC FITA TRanspore",
+    "name": "PAC FITA TRANSPORE",
     "price": 5,
     "stock": 24,
     "category": "Descartáveis",
@@ -460,7 +460,7 @@
   },
   {
     "id": 52,
-    "name": "Palito De Madeira",
+    "name": "PALITO DE MADEIRA",
     "price": 3.99,
     "stock": 12,
     "category": "Descartáveis",
@@ -487,7 +487,7 @@
   },
   {
     "id": 55,
-    "name": "Pds adesivo",
+    "name": "PDS ADESIVO",
     "price": 22.5,
     "stock": 20,
     "category": "Acessórios",
@@ -496,7 +496,7 @@
   },
   {
     "id": 56,
-    "name": "Pinca P/ Cilios zolo",
+    "name": "PINCA P/ CILIOS ZOLO",
     "price": 14.99,
     "stock": 8,
     "category": "Ferramentas",
@@ -505,7 +505,7 @@
   },
   {
     "id": 57,
-    "name": "Pincel aplicador de batom",
+    "name": "PINCEL APLICADOR DE BATOM",
     "price": 6.5,
     "stock": 40,
     "category": "Maquiagem",
@@ -514,7 +514,7 @@
   },
   {
     "id": 58,
-    "name": "Pisseta",
+    "name": "PISSETA",
     "price": 9.99,
     "stock": 12,
     "category": "Acessórios",
@@ -523,7 +523,7 @@
   },
   {
     "id": 59,
-    "name": "Placa acrilica",
+    "name": "PLACA ACRILICA",
     "price": 19.9,
     "stock": 6,
     "category": "Acessórios",
@@ -532,7 +532,7 @@
   },
   {
     "id": 60,
-    "name": "POMADA ANESTESICA TKTX verde",
+    "name": "POMADA ANESTESICA TKTX VERDE",
     "price": 69.9,
     "stock": 5,
     "category": "Estética",
@@ -541,7 +541,7 @@
   },
   {
     "id": 61,
-    "name": "POMADA TKTX POS preta",
+    "name": "POMADA TKTX POS PRETA",
     "price": 89.9,
     "stock": 5,
     "category": "Estética",
@@ -550,7 +550,7 @@
   },
   {
     "id": 62,
-    "name": "Pump spray",
+    "name": "PUMP SPRAY",
     "price": 9.99,
     "stock": 12,
     "category": "Acessórios",
@@ -559,7 +559,7 @@
   },
   {
     "id": 63,
-    "name": "Removedor Funmix 5g",
+    "name": "REMOVEDOR FUNMIX 5G",
     "price": 25.9,
     "stock": 3,
     "category": "Cílios",
@@ -568,7 +568,7 @@
   },
   {
     "id": 64,
-    "name": "Removedor Funmix 5g Melancia",
+    "name": "REMOVEDOR FUNMIX 5G MELANCIA",
     "price": 25.9,
     "stock": 3,
     "category": "Cílios",
@@ -577,7 +577,7 @@
   },
   {
     "id": 65,
-    "name": "REMOVEDOR nivina",
+    "name": "REMOVEDOR NIVINA",
     "price": 27.5,
     "stock": 5,
     "category": "Estética",
@@ -586,7 +586,7 @@
   },
   {
     "id": 66,
-    "name": "Rolo PAPEL Toalha",
+    "name": "ROLO PAPEL TOALHA",
     "price": 0,
     "stock": 2,
     "category": "Descartáveis",
