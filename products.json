@@ -23,7 +23,7 @@
 
 {"id":12,"name":"Brincos","price":10,"stock":35,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Brincos delicados que combinam com qualquer estilo."},
 
-{"id":13,"name":"Henna Castanho Escuro","price":39.9,"stock":5,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Henna ideal para definição e preenchimento de sobrancelhas."},
+{"id":13,"name":"Henna Castanho Escuro","price":39.9,"stock":5,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/po-magico.jpeg","description":"Henna ideal para definição e preenchimento de sobrancelhas."},
 
 {"id":14,"name":"Paquímetro","price":8,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/paquimetro.jpeg","description":"Ferramenta de medição precisa para uso profissional."},
 
@@ -35,7 +35,7 @@
 
 {"id":18,"name":"Gel Sobrancelha Melu","price":19.9,"stock":24,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/gel-modelador-melu.jpeg","description":"Gel fixador que modela e define as sobrancelhas."},
 
-{"id":19,"name":"Gel Sobrancelha HB","price":19.9,"stock":36,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Produto ideal para alinhamento e fixação dos fios."},
+{"id":19,"name":"Gel Sobrancelha HB","price":19.9,"stock":36,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/.jpeg","description":"Produto ideal para alinhamento e fixação dos fios."},
 
 {"id":20,"name":"Agulha 1 ponta","price":6.4,"stock":225,"category":"Micropigmentação","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/agulha-1ponta.jpeg","description":"Agulha descartável para micropigmentação com alta precisão."},
 
