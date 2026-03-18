@@ -55,7 +55,7 @@
 
 {"id":28,"name":"Pomada TKTX Verde","price":69.9,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/pomanda-tktx.jpeg","description":"Pomada anestésica que reduz desconfortos em procedimentos."},
 
-{"id":29,"name":"Body Splash Alleva","price":25.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Body splash com fragrância suave e refrescante."},
+{"id":29,"name":"Body Splash Alleva","price":24.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/body-sple.jpeg","description":"Body splash com fragrância suave e refrescante."},
 
 {"id":30,"name":"Geleia Hidratante Alleva","price":22.9,"stock":10,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/geleia.jpeg","description":"Geleia hidratante que deixa a pele macia e iluminada."},
 
@@ -67,9 +67,9 @@
 
 {"id":34,"name":"Batom","price":5.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/batom-verde-dourado.jpeg","description":"Bracelete moderno para complementar o visual."},
 
-{"id":35,"name":"Capilar Babalife","price":34.9,"stock":3,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Produto capilar para tratamento e cuidado dos fios."},
+{"id":35,"name":"Capilar Babalife","price":34.9,"stock":3,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/babalife.jpeg","description":"Produto capilar para tratamento e cuidado dos fios."},
 
-{"id":36,"name":"Capilar Angles","price":34.9,"stock":2,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Tratamento capilar que fortalece e hidrata o cabelo."},
+{"id":36,"name":"Capilar Angles","price":34.9,"stock":2,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/capilife.jpeg","description":"Tratamento capilar que fortalece e hidrata o cabelo."},
 
 {"id":37,"name":"Mixer de Cola","price":49.9,"stock":3,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Misturador de cola para uso profissional."},
 
