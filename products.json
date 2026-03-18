@@ -57,11 +57,11 @@
 
 {"id":29,"name":"Body Splash Alleva","price":25.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Body splash com fragrância suave e refrescante."},
 
-{"id":30,"name":"Geleia Hidratante Alleva","price":22.9,"stock":10,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Geleia hidratante que deixa a pele macia e iluminada."},
+{"id":30,"name":"Geleia Hidratante Alleva","price":22.9,"stock":10,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/geleia.jpeg","description":"Geleia hidratante que deixa a pele macia e iluminada."},
 
 {"id":31,"name":"Hidratante Corpo Alleva","price":16.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Hidratante corporal com rápida absorção."},
 
-{"id":32,"name":"Mousse Limpeza Alleva","price":19.9,"stock":27,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Mousse de limpeza que remove impurezas da pele."},
+{"id":32,"name":"Mousse Limpeza Alleva","price":19.9,"stock":27,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/alleva-limpeza.jpeg","description":"Mousse de limpeza que remove impurezas da pele."},
 
 {"id":33,"name":"Sabonete Líquido Alleva","price":16.9,"stock":2,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Sabonete líquido para limpeza suave da pele."},
 
