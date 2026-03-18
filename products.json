@@ -1,29 +1,101 @@
 [
-  {
-    "id": 1,
-    "name": "Óleo de Rosa Mosqueta",
-    "price": 29.9,
-    "stock": 20,
-    "category": "Skincare",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/Oleo-de-rosa-mosqueta.jpeg",
-    "description": "Produto hidratante e regenerador para cuidados com a pele."
-  },
-  {
-    "id": 2,
-    "name": "Kit Cílios Volume Russo",
-    "price": 89.9,
-    "stock": 15,
-    "category": "Cílios",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/tesoura.jpeg",
-    "description": "Fios leves e sofisticados para um olhar marcante."
-  },
-  {
-    "id": 3,
-    "name": "Agulha 1 Ponta",
-    "price": 89.9,
-    "stock": 15,
-    "category": "Cílios",
-    "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/agulha-1ponta.jpeg",
-    "description": "Fios leves e sofisticados para um olhar marcante."
-  }
+{"id":1,"name":"Óleo de Rosa Mosqueta","price":18.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Óleo rico em vitaminas que hidrata profundamente, auxilia na regeneração da pele e reduz manchas."},
+
+{"id":2,"name":"Pisseta 23FR12","price":9.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Recipiente prático para aplicação de líquidos em procedimentos estéticos."},
+
+{"id":3,"name":"Máscara de Cílios Playboy","price":21.9,"stock":10,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Máscara que proporciona volume, definição e alongamento aos cílios."},
+
+{"id":4,"name":"Creme Removedor","price":27.5,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Removedor eficaz para procedimentos estéticos com segurança."},
+
+{"id":5,"name":"Magic Lipstick","price":39.99,"stock":6,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Batom de alta durabilidade que realça a cor natural dos lábios."},
+
+{"id":6,"name":"Colar","price":19.9,"stock":8,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Colar moderno ideal para compor looks elegantes."},
+
+{"id":7,"name":"Colar Chocker Conjunto","price":19.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Conjunto de chokers para um visual estiloso e moderno."},
+
+{"id":8,"name":"Chocker Doze","price":23.9,"stock":1,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Chocker elegante que valoriza qualquer look."},
+
+{"id":9,"name":"Pulseira Sete","price":19.9,"stock":10,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pulseira versátil ideal para uso diário."},
+
+{"id":10,"name":"Pulseira Seis","price":19.9,"stock":1,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pulseira moderna com acabamento delicado."},
+
+{"id":11,"name":"Trio Argolinha (3 por 10)","price":30,"stock":1,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Kit com três brincos estilo argolinha para compor looks variados."},
+
+{"id":12,"name":"Brincos","price":10,"stock":35,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Brincos delicados que combinam com qualquer estilo."},
+
+{"id":13,"name":"Henna Castanho Escuro","price":39.9,"stock":5,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Henna ideal para definição e preenchimento de sobrancelhas."},
+
+{"id":14,"name":"Paquímetro LY699","price":8,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Ferramenta de medição precisa para uso profissional."},
+
+{"id":15,"name":"Ventilador 60704","price":34.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Ventilador compacto ideal para secagem rápida."},
+
+{"id":16,"name":"Espelho","price":15.9,"stock":5,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Espelho prático para uso diário ou profissional."},
+
+{"id":17,"name":"Papel Filme","price":27.5,"stock":10,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Filme plástico para proteção em procedimentos estéticos."},
+
+{"id":18,"name":"Gel Sobrancelha Melu","price":19.9,"stock":24,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Gel fixador que modela e define as sobrancelhas."},
+
+{"id":19,"name":"Gel Sobrancelha HB","price":19.9,"stock":36,"category":"Sobrancelha","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Produto ideal para alinhamento e fixação dos fios."},
+
+{"id":20,"name":"Agulha Dermógrafo","price":6.4,"stock":225,"category":"Micropigmentação","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Agulha descartável para micropigmentação com alta precisão."},
+
+{"id":21,"name":"Lenço","price":6,"stock":24,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Lenços descartáveis ideais para limpeza e higiene."},
+
+{"id":22,"name":"Tesoura","price":17.99,"stock":6,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Tesoura de precisão para uso profissional."},
+
+{"id":23,"name":"Kit Pinça","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Kit com pinças para procedimentos detalhados."},
+
+{"id":24,"name":"Pinça Curva","price":18.9,"stock":2,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pinça curva ideal para aplicação de cílios."},
+
+{"id":25,"name":"Fita Micropore","price":10.9,"stock":5,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Fita para fixação em procedimentos estéticos."},
+
+{"id":26,"name":"Primer Baut Kit","price":159.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Primer profissional que melhora a fixação dos cílios."},
+
+{"id":27,"name":"Pomada TKTX Pós","price":89.9,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pomada pós procedimento que auxilia na recuperação da pele."},
+
+{"id":28,"name":"Pomada Anestésica TKTX 40g","price":69.9,"stock":5,"category":"Estética","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pomada anestésica que reduz desconfortos em procedimentos."},
+
+{"id":29,"name":"Body Splash Alleva","price":25.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Body splash com fragrância suave e refrescante."},
+
+{"id":30,"name":"Geleia Hidratante Alleva","price":22.9,"stock":10,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Geleia hidratante que deixa a pele macia e iluminada."},
+
+{"id":31,"name":"Hidratante Corpo Alleva","price":16.9,"stock":5,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Hidratante corporal com rápida absorção."},
+
+{"id":32,"name":"Mousse Limpeza Alleva","price":19.9,"stock":27,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Mousse de limpeza que remove impurezas da pele."},
+
+{"id":33,"name":"Sabonete Líquido Alleva","price":16.9,"stock":2,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Sabonete líquido para limpeza suave da pele."},
+
+{"id":34,"name":"Bracelete","price":11.9,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Bracelete moderno para complementar o visual."},
+
+{"id":35,"name":"Capilar Babalife","price":34.9,"stock":3,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Produto capilar para tratamento e cuidado dos fios."},
+
+{"id":36,"name":"Capilar Angles","price":34.9,"stock":2,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Tratamento capilar que fortalece e hidrata o cabelo."},
+
+{"id":37,"name":"Mixer de Cola","price":49.9,"stock":3,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Misturador de cola para uso profissional."},
+
+{"id":38,"name":"Cílios JD W5D","price":36.9,"stock":5,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cílios para alongamento com efeito volumoso."},
+
+{"id":39,"name":"Removedor Funmix","price":25.9,"stock":6,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Removedor de cola para cílios com ação rápida."},
+
+{"id":40,"name":"Cílios Nagaraku Y","price":24.9,"stock":5,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cílios profissionais para aplicação em volume."},
+
+{"id":41,"name":"Cílios Fadvan","price":36.9,"stock":15,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cílios de alta qualidade para resultados profissionais."},
+
+{"id":42,"name":"Fita Siliconada","price":5,"stock":10,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Fita siliconada para procedimentos de cílios."},
+
+{"id":43,"name":"Dash Box","price":35.9,"stock":4,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Organizador para materiais de trabalho."},
+
+{"id":44,"name":"Cola Cherry Aurora","price":65.9,"stock":2,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cola profissional com alta fixação."},
+
+{"id":45,"name":"Cola Beautify","price":65.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cola resistente para alongamento de cílios."},
+
+{"id":46,"name":"Pinça para Cílios","price":14.99,"stock":8,"category":"Ferramentas","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Pinça ideal para aplicação precisa de cílios."},
+
+{"id":47,"name":"Pote Spray","price":9.99,"stock":10,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Frasco spray para uso em procedimentos."},
+
+{"id":48,"name":"Micro Brush","price":6.5,"stock":36,"category":"Descartáveis","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Aplicadores descartáveis para precisão em procedimentos."},
+
+{"id":49,"name":"Frasco Plástico","price":9.99,"stock":12,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Frasco ideal para armazenamento de líquidos."},
+
+{"id":50,"name":"Esponja Maquiagem","price":5,"stock":60,"category":"Maquiagem","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Esponja para aplicação uniforme de maquiagem."}
 ]
