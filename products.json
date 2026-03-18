@@ -65,7 +65,7 @@
 
 {"id":33,"name":"Sabonete Líquido Alleva","price":16.9,"stock":2,"category":"Skincare","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Sabonete líquido para limpeza suave da pele."},
 
-{"id":34,"name":"Bracelete","price":11.9,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Bracelete moderno para complementar o visual."},
+{"id":34,"name":"Batom","price":5.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/batom-verde-dourado.jpeg","description":"Bracelete moderno para complementar o visual."},
 
 {"id":35,"name":"Capilar Babalife","price":34.9,"stock":3,"category":"Cabelo","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Produto capilar para tratamento e cuidado dos fios."},
 
@@ -85,7 +85,7 @@
 
 {"id":43,"name":"Dash Box","price":35.9,"stock":4,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/caixa-placas.jpeg","description":"Organizador para materiais de trabalho."},
 
-{"id":44,"name":"Cola Cherry Aurora","price":65.9,"stock":2,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/NOME-DA-IMAGEM.jpeg","description":"Cola profissional com alta fixação."},
+{"id":44,"name":"Batom Magico","price":9.99,"stock":2,"category":"Acessórios","image":"https://devolprodrigov.github.io/beauty-sabrina/imagens/batom-verde-magico.jpeg","description":"Cola profissional com alta fixação."},
 
 {"id":45,"name":"Cola Beautify","price":65.9,"stock":3,"category":"Cílios","image":"https://devolprodrigov.github.io/beauty-sabrina/cola-oxe.jpeg","description":"Cola resistente para alongamento de cílios."},
 
