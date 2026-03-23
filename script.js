@@ -174,22 +174,40 @@ function renderCart() {
 
   box.innerHTML = `
     ${items}
-    <div class="checkout-box">
-      <p class="muted">Total do pedido</p>
-      <div class="summary-total">${formatBRL(cartTotal())}</div>
 
-      <div class="form-grid" style="margin-top:20px;">
-        <label>
-          <span>Nome</span>
-          <input id="customerFirstName" type="text" placeholder="Seu nome">
-        </label>
-        <label>
-          <span>Sobrenome</span>
-          <input id="customerLastName" type="text" placeholder="Seu sobrenome">
-        </label>
+    <div class="checkout-highlight">
+      <div class="checkout-badge">FINALIZAR PEDIDO</div>
+
+      <h3 class="checkout-title">Falta muito pouco para concluir sua compra</h3>
+      <p class="checkout-subtitle">
+        Preencha seus dados abaixo e envie seu pedido direto pelo WhatsApp.
+      </p>
+
+      <div class="checkout-total-box">
+        <span>Total do pedido</span>
+        <strong>${formatBRL(cartTotal())}</strong>
       </div>
 
-      <button class="whats-btn" style="margin-top:18px;" onclick="finishOrder()">Enviar pedido no WhatsApp</button>
+      <div class="checkout-form">
+        <div class="checkout-field">
+          <label for="customerFirstName">Nome</label>
+          <input id="customerFirstName" type="text" placeholder="Seu nome">
+        </div>
+
+        <div class="checkout-field">
+          <label for="customerLastName">Sobrenome</label>
+          <input id="customerLastName" type="text" placeholder="Seu sobrenome">
+        </div>
+      </div>
+
+      <button class="checkout-whatsapp-btn" onclick="finishOrder()">
+        <span class="whatsapp-icon">🟢</span>
+        <span>Fechar pedido no WhatsApp</span>
+      </button>
+
+      <p class="checkout-note">
+        Você será direcionado para o WhatsApp com seu pedido pronto para envio.
+      </p>
     </div>
   `;
 }
@@ -266,6 +284,7 @@ function finishOrder() {
   updateCartCount();
   renderCart();
   renderCartPopup();
+  closeCartPopup();
   setView('shop');
 
   window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${message}`, '_blank');
