@@ -133,14 +133,18 @@ function addToCart(id) {
   }
 
   if (input) input.value = 1;
+
   updateCartCount();
   renderCart();
+  renderCartPopup();
+  openCartPopup();
 }
 
 function removeFromCart(id) {
   state.cart = state.cart.filter(item => Number(item.id) !== Number(id));
   updateCartCount();
   renderCart();
+  renderCartPopup();
 }
 
 function cartTotal() {
@@ -185,9 +189,59 @@ function renderCart() {
         </label>
       </div>
 
-      <button class="whats-btn" style="margin-top:18px;" onclick="finishOrder()">Finalizar no WhatsApp</button>
+      <button class="whats-btn" style="margin-top:18px;" onclick="finishOrder()">Enviar pedido no WhatsApp</button>
     </div>
   `;
+}
+
+function openCartPopup() {
+  const popup = document.getElementById('cartPopup');
+  if (!popup) return;
+  popup.classList.remove('hidden');
+  renderCartPopup();
+}
+
+function closeCartPopup() {
+  const popup = document.getElementById('cartPopup');
+  if (!popup) return;
+  popup.classList.add('hidden');
+}
+
+function renderCartPopup() {
+  const box = document.getElementById('cartPopupContent');
+  if (!box) return;
+
+  if (!state.cart.length) {
+    box.innerHTML = '<div class="empty-state">Seu carrinho está vazio.</div>';
+    return;
+  }
+
+  box.innerHTML = `
+    <div class="popup-items">
+      ${state.cart.map(item => `
+        <div class="cart-card">
+          <img src="${escapeAttr(item.image || DEFAULT_IMAGE)}" alt="${escapeAttr(item.name || 'Produto')}" referrerpolicy="no-referrer">
+          <div>
+            <strong>${escapeHtml(item.name || 'Produto')}</strong>
+            <div class="muted">Qtd: ${Number(item.qty)}</div>
+            <div class="price">${formatBRL(Number(item.price || 0) * Number(item.qty || 0))}</div>
+          </div>
+          <button class="delete-btn" onclick="removeFromCart(${Number(item.id)})">Remover</button>
+        </div>
+      `).join('')}
+    </div>
+
+    <div class="checkout-box">
+      <p class="muted">Total do pedido</p>
+      <div class="summary-total">${formatBRL(cartTotal())}</div>
+    </div>
+  `;
+}
+
+function goToCheckoutScreen() {
+  closeCartPopup();
+  setView('cart');
+  renderCart();
 }
 
 function finishOrder() {
@@ -211,6 +265,7 @@ function finishOrder() {
   state.cart = [];
   updateCartCount();
   renderCart();
+  renderCartPopup();
   setView('shop');
 
   window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${message}`, '_blank');
@@ -382,6 +437,9 @@ function bindEvents() {
 
   document.getElementById('addProductBtn')?.addEventListener('click', addProductFromForm);
   document.getElementById('exportPdfBtn')?.addEventListener('click', exportPDF);
+
+  document.getElementById('closeCartPopup')?.addEventListener('click', closeCartPopup);
+  document.getElementById('goToCheckout')?.addEventListener('click', goToCheckoutScreen);
 }
 
 window.changeQty = changeQty;
@@ -392,6 +450,7 @@ window.copyProductJson = copyProductJson;
 
 bindEvents();
 renderCart();
+renderCartPopup();
 updateCartCount();
 setView('shop');
 loadProductsFromServer();
