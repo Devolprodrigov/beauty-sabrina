@@ -5,20 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Catálogo Sabrina Beauty com carrinho, painel de gestão e pedidos por WhatsApp." />
     <title>Sabrina Beauty</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css" />
+
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script defer src="script.js"></script>
   </head>
-  <body>
-    <div class="bg-decoration bg-1"></div>
-    <div class="bg-decoration bg-2"></div>
-    <div class="bg-decoration bg-3"></div>
 
+  <body>
+
+    <!-- HEADER -->
     <header class="topbar">
-      <button class="brand" id="goShop" aria-label="Ir para a loja">
+      <button class="brand" id="goShop">
         <div class="brand-badge">SB</div>
         <div>
           <h1>SABRINA BEAUTY</h1>
@@ -27,81 +25,75 @@
       </button>
 
       <div class="header-actions">
-        <button class="icon-btn" id="openAdmin" aria-label="Abrir painel admin">⚙️</button>
-        <button class="icon-btn cart-btn" id="openCart" aria-label="Abrir carrinho">
+        <button class="icon-btn" id="openAdmin">⚙️</button>
+
+        <button class="icon-btn cart-btn" id="openCart">
           🛍️
           <span class="badge" id="cartCount">0</span>
         </button>
       </div>
     </header>
 
+    <!-- MAIN -->
     <main class="container">
+
+      <!-- LOJA -->
       <section class="view active" id="view-shop">
-        <div class="section-title">
-          <h2>Coleção Exclusiva</h2>
-          <div class="divider"></div>
-          <p>Escolha os produtos, ajuste a quantidade e finalize pelo WhatsApp.</p>
-        </div>
+        <h2>Produtos</h2>
         <div id="productsGrid" class="products-grid"></div>
       </section>
 
+      <!-- CARRINHO FINAL -->
       <section class="view" id="view-cart">
-        <button class="link-back" id="backToShop">← Continuar comprando</button>
+        <button id="backToShop">← Voltar</button>
         <div id="cartContent"></div>
       </section>
 
+      <!-- ADMIN (OCULTO PARA CLIENTE) -->
       <section class="view" id="view-admin">
-        <div class="admin-header">
-          <div>
-            <h2>Painel de Gestão</h2>
-            <p>Cadastre, edite e exporte seus produtos.</p>
-          </div>
-          <button class="secondary-btn" id="exportPdfBtn">Exportar PDF</button>
-        </div>
+        <h2>Painel de Gestão</h2>
 
-        <section class="card admin-form">
-          <h3>Novo produto</h3>
-          <div class="form-grid">
-            <label>
-              <span>Nome</span>
-              <input id="newName" type="text" placeholder="Ex: Pigmento Labial" />
-            </label>
-            <label>
-              <span>Preço (R$)</span>
-              <input id="newPrice" type="number" step="0.01" placeholder="0.00" />
-            </label>
-            <label>
-              <span>Categoria</span>
-              <input id="newCategory" type="text" placeholder="Micropigmentação" />
-            </label>
-            <label>
-              <span>Estoque</span>
-              <input id="newStock" type="number" step="1" placeholder="0" />
-            </label>
-            <label class="full">
-              <span>Descrição</span>
-              <textarea id="newDescription" placeholder="Descreva o produto..."></textarea>
-            </label>
-            <label class="full">
-              <span>Imagem</span>
-              <input id="newImageUrl" type="text" placeholder="Cole a URL da imagem">
-              <small>Você também pode deixar vazio e usar a imagem padrão.</small>
-            </label>
-          </div>
-          <button class="primary-btn" id="addProductBtn">Cadastrar produto</button>
-        </section>
+        <input id="newName" placeholder="Nome" />
+        <input id="newPrice" placeholder="Preço" />
+        <input id="newStock" placeholder="Estoque" />
+        <input id="newCategory" placeholder="Categoria" />
+        <textarea id="newDescription" placeholder="Descrição"></textarea>
+        <input id="newImageUrl" placeholder="URL da imagem" />
 
-        <section>
-          <h3 class="subheading">Inventário atual</h3>
-          <div id="adminList" class="admin-list"></div>
-        </section>
+        <button id="addProductBtn">Cadastrar</button>
+
+        <div id="adminList"></div>
       </section>
+
     </main>
 
+    <!-- 🔥 POPUP DO CARRINHO -->
+    <div id="cartPopup" class="cart-popup hidden">
+      <div class="cart-popup-box">
+
+        <div class="cart-popup-header">
+          <h3>Seu carrinho</h3>
+          <button id="closeCartPopup">✕</button>
+        </div>
+
+        <div id="cartPopupContent"></div>
+
+        <div class="cart-popup-footer">
+          <button id="goToCheckout" class="primary-btn">
+            Fechar pedido
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- MENU -->
     <nav class="bottom-nav">
       <button data-view="shop" class="nav-btn active">Loja</button>
       <button data-view="cart" class="nav-btn">Pedido</button>
+      <!-- Gestão escondido -->
       <!-- <button data-view="admin" class="nav-btn">Gestão</button> -->
     </nav>
+
   </body>
 </html>
