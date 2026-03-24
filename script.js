@@ -20,6 +20,19 @@
   </head>
 
   <body>
+    <div id="installPrompt" class="install-prompt hidden">
+      <div class="install-prompt-box">
+        <div>
+          <strong>Instalar Sabrina Beauty</strong>
+          <p>Adicione o site à tela inicial e use como aplicativo.</p>
+        </div>
+        <div class="install-prompt-actions">
+          <button id="closeInstallPrompt" class="secondary-btn" type="button">Agora não</button>
+          <button id="installAppBtn" class="primary-btn" type="button">Instalar</button>
+        </div>
+      </div>
+    </div>
+
     <div class="bg-decoration bg-1"></div>
     <div class="bg-decoration bg-2"></div>
     <div class="bg-decoration bg-3"></div>
@@ -105,26 +118,54 @@
     </nav>
 
     <script>
-      // 1. Registro do Service Worker (PWA)
+      // ==========================================
+      // LÓGICA PWA & INSTALAÇÃO
+      // ==========================================
+      let deferredPrompt = null;
+
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/service-worker.js')
-            .catch(err => console.error('Erro ao registrar service worker:', err));
+            .catch(err => console.error('Erro SW:', err));
         });
       }
 
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const installPrompt = document.getElementById('installPrompt');
+        if (installPrompt) installPrompt.classList.remove('hidden');
+      });
+
+      document.getElementById('installAppBtn')?.addEventListener('click', async () => {
+        if (!deferredPrompt) return;
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+        document.getElementById('installPrompt')?.classList.add('hidden');
+      });
+
+      document.getElementById('closeInstallPrompt')?.addEventListener('click', () => {
+        document.getElementById('installPrompt')?.classList.add('hidden');
+      });
+
+      window.addEventListener('appinstalled', () => {
+        deferredPrompt = null;
+        document.getElementById('installPrompt')?.classList.add('hidden');
+      });
+
+      // ==========================================
+      // LÓGICA DO CATÁLOGO
+      // ==========================================
       const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&auto=format&fit=crop';
       const WHATSAPP_PRIMARY = '5541997282177';
-
       const state = { view: 'shop', products: [], cart: [] };
 
-      // Funções de Escape para segurança
       function escapeHtml(text) {
         return String(text).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
       }
       function escapeAttr(text) { return escapeHtml(text); }
 
-      // Carregamento de dados
       async function loadProductsFromServer() {
         try {
           const response = await fetch('products.json?v=' + Date.now());
@@ -148,11 +189,7 @@
         document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
         const currentView = document.getElementById(`view-${view}`);
         if (currentView) currentView.classList.add('active');
-
-        document.querySelectorAll('.nav-btn').forEach(btn => {
-          btn.classList.toggle('active', btn.dataset.view === view);
-        });
-
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.view === view));
         if (view === 'cart') renderCart();
         if (view === 'admin') renderAdmin();
       }
@@ -198,10 +235,7 @@
 
       function changeQty(id, delta) {
         const input = document.getElementById(`qty-${id}`);
-        if (!input) return;
-        const max = Number(input.max || 999);
-        const current = Number(input.value || 1);
-        input.value = Math.max(1, Math.min(max, current + delta));
+        if (input) input.value = Math.max(1, Math.min(Number(input.max || 999), Number(input.value || 1) + delta));
       }
 
       function addToCart(id) {
@@ -211,15 +245,13 @@
         if (!product) return;
 
         const existing = state.cart.find(item => Number(item.id) === Number(id));
-        const currentQty = existing ? existing.qty : 0;
-
-        if (currentQty + qty > Number(product.stock)) {
+        if ((existing ? existing.qty : 0) + qty > Number(product.stock)) {
           alert(`Tem apenas ${product.stock} unidades disponíveis.`);
           return;
         }
 
-        if (existing) { existing.qty += qty; } 
-        else { state.cart.push({ ...product, qty }); }
+        if (existing) existing.qty += qty;
+        else state.cart.push({ ...product, qty });
 
         if (input) input.value = 1;
         updateCartCount();
@@ -261,7 +293,6 @@
           box.innerHTML = '<div class="empty-state">Seu carrinho está vazio.</div>';
           return;
         }
-        const total = state.cart.reduce((s, i) => s + (i.price * i.qty), 0);
         box.innerHTML = state.cart.map(item => `
           <div class="cart-card">
             <img src="${escapeAttr(item.image || DEFAULT_IMAGE)}">
@@ -269,7 +300,7 @@
             <button class="delete-btn" onclick="removeFromCart(${item.id})">Remover</button>
           </div>`).join('') + `
           <div class="checkout-highlight">
-            <h3>Total: ${formatBRL(total)}</h3>
+            <h3>Total: ${formatBRL(state.cart.reduce((s, i) => s + (i.price * i.qty), 0))}</h3>
             <div class="checkout-form">
               <label>Nome <input id="customerFirstName" type="text" placeholder="Seu nome"></label>
               <label>Sobrenome <input id="customerLastName" type="text" placeholder="Seu sobrenome"></label>
@@ -280,20 +311,16 @@
 
       function removeFromCart(id) {
         state.cart = state.cart.filter(i => Number(i.id) !== Number(id));
-        updateCartCount();
-        renderCart();
-        renderCartPopup();
+        updateCartCount(); renderCart(); renderCartPopup();
       }
 
       async function finishOrder() {
         const nome = document.getElementById('customerFirstName')?.value.trim();
         const sobrenome = document.getElementById('customerLastName')?.value.trim();
         if (!nome || !sobrenome) return alert("Preencha nome e sobrenome.");
-
         let message = `Olá! Pedido de ${nome} ${sobrenome}:%0A%0A`;
         state.cart.forEach(i => message += `• ${i.name} (${i.qty}x) - ${formatBRL(i.price * i.qty)}%0A`);
         message += `%0A*Total: ${formatBRL(state.cart.reduce((s, i) => s + (i.price * i.qty), 0))}*`;
-
         window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${message}`, '_blank');
       }
 
@@ -317,10 +344,7 @@
         const doc = new jsPDF();
         doc.text("SABRINA BEAUTY - CATÁLOGO", 10, 10);
         let y = 20;
-        state.products.forEach(p => {
-          doc.text(`${p.name} - ${formatBRL(p.price)}`, 10, y);
-          y += 10;
-        });
+        state.products.forEach(p => { doc.text(`${p.name} - ${formatBRL(p.price)}`, 10, y); y += 10; });
         doc.save('catalogo.pdf');
       }
 
