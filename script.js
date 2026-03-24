@@ -1,371 +1,511 @@
-<!doctype html>
-<html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Catálogo Sabrina Beauty com carrinho, painel de gestão e pedidos por WhatsApp." />
-    <title>Sabrina Beauty</title>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .catch(err => console.error('Erro ao registrar service worker:', err));
+  });
+}
 
-    <link rel="manifest" href="manifest.json" />
-    <meta name="theme-color" content="#050505" />
-    <link rel="apple-touch-icon" href="imagens/icon-192.png" />
+const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&auto=format&fit=crop';
+const WHATSAPP_PRIMARY = '5541997282177';
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+const state = {
+  view: 'shop',
+  products: [],
+  cart: []
+};
 
-    <link rel="stylesheet" href="styles.css" />
+async function loadProductsFromServer() {
+  try {
+    const response = await fetch('products.json?v=' + Date.now());
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}`);
+    }
 
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  </head>
+    const data = await response.json();
+    state.products = Array.isArray(data) ? data : [];
+    renderProducts();
+    renderAdmin();
+  } catch (e) {
+    console.error('Erro ao carregar produtos:', e);
+    state.products = [];
+    renderProducts();
+    renderAdmin();
+  }
+}
 
-  <body>
-    <div id="installPrompt" class="install-prompt hidden">
-      <div class="install-prompt-box">
-        <div>
-          <strong>Instalar Sabrina Beauty</strong>
-          <p>Adicione o site à tela inicial e use como aplicativo.</p>
-        </div>
-        <div class="install-prompt-actions">
-          <button id="closeInstallPrompt" class="secondary-btn" type="button">Agora não</button>
-          <button id="installAppBtn" class="primary-btn" type="button">Instalar</button>
-        </div>
-      </div>
-    </div>
+function saveProducts() {
+  alert('Para atualizar o catálogo para todo mundo, edite o arquivo products.json no GitHub.');
+}
 
-    <div class="bg-decoration bg-1"></div>
-    <div class="bg-decoration bg-2"></div>
-    <div class="bg-decoration bg-3"></div>
+function formatBRL(value) {
+  return new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(Number(value || 0));
+}
 
-    <header class="topbar">
-      <button class="brand" id="goShop" aria-label="Ir para a loja">
-        <div class="brand-badge">SB</div>
-        <div>
-          <h1>SABRINA BEAUTY</h1>
-          <p>Revendedor Oficial</p>
-        </div>
-      </button>
+function setView(view) {
+  state.view = view;
 
-      <div class="header-actions">
-        <button class="icon-btn cart-btn" id="openCart" aria-label="Abrir carrinho">
-          🛍️
-          <span class="badge" id="cartCount">0</span>
-        </button>
-      </div>
-    </header>
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  const currentView = document.getElementById(`view-${view}`);
+  if (currentView) currentView.classList.add('active');
 
-    <main class="container">
-      <section class="view active" id="view-shop">
-        <div class="section-title">
-          <h2>Coleção Exclusiva</h2>
-          <div class="divider"></div>
-          <p>Escolha seus produtos, acompanhe o carrinho e finalize pelo WhatsApp.</p>
-        </div>
-        <div id="productsGrid" class="products-grid"></div>
-      </section>
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.view === view);
+  });
 
-      <section class="view" id="view-cart">
-        <button class="link-back" id="backToShop">← Continuar comprando</button>
-        <div id="cartContent"></div>
-      </section>
+  if (view === 'cart') renderCart();
+  if (view === 'admin') renderAdmin();
+}
 
-      <section class="view" id="view-admin">
-        <div class="admin-header">
-          <div>
-            <h2>Painel de Gestão</h2>
-            <p>Cadastre, visualize e exporte seus produtos.</p>
-          </div>
-          <button class="secondary-btn" id="exportPdfBtn">Exportar PDF</button>
-        </div>
+function updateCartCount() {
+  const total = state.cart.reduce((acc, item) => acc + item.qty, 0);
+  const cartCount = document.getElementById('cartCount');
+  if (cartCount) cartCount.textContent = total;
+}
 
-        <section class="card admin-form">
-          <h3>Novo produto</h3>
-          <div class="form-grid">
-            <label><span>Nome</span><input id="newName" type="text" /></label>
-            <label><span>Preço (R$)</span><input id="newPrice" type="number" step="0.01" /></label>
-            <label><span>Categoria</span><input id="newCategory" type="text" /></label>
-            <label><span>Estoque</span><input id="newStock" type="number" /></label>
-            <label class="full"><span>Descrição</span><textarea id="newDescription"></textarea></label>
-            <label class="full"><span>Imagem (URL)</span><input id="newImageUrl" type="text" /></label>
-          </div>
-          <button class="primary-btn" id="addProductBtn">Cadastrar produto</button>
-        </section>
+function renderProducts() {
+  const grid = document.getElementById('productsGrid');
+  if (!grid) return;
 
-        <section>
-          <h3 class="subheading">Inventário atual</h3>
-          <div id="adminList" class="admin-list"></div>
-        </section>
-      </section>
-    </main>
+  if (!state.products.length) {
+    grid.innerHTML = '<div class="empty-state">Nenhum produto cadastrado.</div>';
+    return;
+  }
 
-    <div id="cartPopup" class="cart-popup hidden">
-      <div class="cart-popup-box">
-        <div class="cart-popup-header">
-          <h3>Seu carrinho</h3>
-          <button id="closeCartPopup" class="icon-btn">✕</button>
-        </div>
-        <div id="cartPopupContent" class="cart-popup-content"></div>
-        <div class="cart-popup-footer">
-          <button id="goToCheckout" class="primary-btn">Fechar pedido</button>
-        </div>
-      </div>
-    </div>
+  grid.innerHTML = state.products.map(product => `
+    <article class="product-card">
+      <div class="product-image-wrap">
+        <img src="${escapeAttr(product.image || DEFAULT_IMAGE)}" alt="${escapeAttr(product.name || 'Produto')}" referrerpolicy="no-referrer">
+        <span class="product-category">${escapeHtml(product.category || 'Geral')}</span>
+      </div>
 
-    <nav class="bottom-nav">
-      <button data-view="shop" class="nav-btn active">Loja</button>
-      <button data-view="cart" class="nav-btn">Pedido</button>
-      <button data-view="admin" class="nav-btn">Gestão</button>
-    </nav>
+      <div class="product-body">
+        <div>
+          <h3>${escapeHtml(product.name || 'Produto sem nome')}</h3>
+          <p class="product-desc">${escapeHtml(product.description || 'Produto premium disponível para pedido.')}</p>
+          <div class="price">${formatBRL(product.price)}</div>
+          <div class="stock-line">
+            <span class="stock-dot ${Number(product.stock) > 0 ? '' : 'off'}"></span>
+            <span>${Number(product.stock) > 0 ? `${Number(product.stock)} disponíveis` : 'Esgotado'}</span>
+          </div>
+        </div>
 
-    <script>
-      // ==========================================
-      // LÓGICA PWA & INSTALAÇÃO
-      // ==========================================
-      let deferredPrompt = null;
+        <div class="qty-row">
+          <div class="qty-box">
+            <button onclick="changeQty(${Number(product.id)}, -1)">-</button>
+            <input id="qty-${Number(product.id)}" type="number" min="1" max="${Math.max(Number(product.stock) || 0, 1)}" value="1">
+            <button onclick="changeQty(${Number(product.id)}, 1)">+</button>
+          </div>
 
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/service-worker.js')
-            .catch(err => console.error('Erro SW:', err));
-        });
-      }
+          <button class="primary-btn" onclick="addToCart(${Number(product.id)})" ${Number(product.stock) <= 0 ? 'disabled' : ''}>
+            Adicionar
+          </button>
+        </div>
+      </div>
+    </article>
+  `).join('');
+}
 
-      window.addEventListener('beforeinstallprompt', (e) => {
-        e.preventDefault();
-        deferredPrompt = e;
-        const installPrompt = document.getElementById('installPrompt');
-        if (installPrompt) installPrompt.classList.remove('hidden');
-      });
+function changeQty(id, delta) {
+  const input = document.getElementById(`qty-${id}`);
+  if (!input) return;
 
-      document.getElementById('installAppBtn')?.addEventListener('click', async () => {
-        if (!deferredPrompt) return;
-        deferredPrompt.prompt();
-        await deferredPrompt.userChoice;
-        deferredPrompt = null;
-        document.getElementById('installPrompt')?.classList.add('hidden');
-      });
+  const max = Number(input.max || 999);
+  const current = Number(input.value || 1);
+  input.value = Math.max(1, Math.min(max, current + delta));
+}
 
-      document.getElementById('closeInstallPrompt')?.addEventListener('click', () => {
-        document.getElementById('installPrompt')?.classList.add('hidden');
-      });
+function addToCart(id) {
+  const product = state.products.find(p => Number(p.id) === Number(id));
+  const input = document.getElementById(`qty-${id}`);
+  const qty = Math.max(1, Number(input?.value || 1));
 
-      window.addEventListener('appinstalled', () => {
-        deferredPrompt = null;
-        document.getElementById('installPrompt')?.classList.add('hidden');
-      });
+  if (!product || qty <= 0) return;
 
-      // ==========================================
-      // LÓGICA DO CATÁLOGO
-      // ==========================================
-      const DEFAULT_IMAGE = 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&auto=format&fit=crop';
-      const WHATSAPP_PRIMARY = '5541997282177';
-      const state = { view: 'shop', products: [], cart: [] };
+  const existing = state.cart.find(item => Number(item.id) === Number(id));
+  const currentQty = existing ? existing.qty : 0;
+  const stock = Number(product.stock || 0);
 
-      function escapeHtml(text) {
-        return String(text).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
-      }
-      function escapeAttr(text) { return escapeHtml(text); }
+  if (currentQty + qty > stock) {
+    alert(`Tem apenas ${stock} unidades disponíveis deste produto.`);
+    return;
+  }
 
-      async function loadProductsFromServer() {
-        try {
-          const response = await fetch('products.json?v=' + Date.now());
-          const data = await response.json();
-          state.products = Array.isArray(data) ? data : [];
-          renderProducts();
-          renderAdmin();
-        } catch (e) {
-          console.error('Erro ao carregar produtos:', e);
-          renderProducts();
-          renderAdmin();
-        }
-      }
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    state.cart.push({ ...product, qty });
+  }
 
-      function formatBRL(v) {
-        return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(Number(v || 0));
-      }
+  if (input) input.value = 1;
 
-      function setView(view) {
-        state.view = view;
-        document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-        const currentView = document.getElementById(`view-${view}`);
-        if (currentView) currentView.classList.add('active');
-        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.view === view));
-        if (view === 'cart') renderCart();
-        if (view === 'admin') renderAdmin();
-      }
+  updateCartCount();
+  renderCart();
+  renderCartPopup();
+  openCartPopup();
+}
 
-      function updateCartCount() {
-        const total = state.cart.reduce((acc, item) => acc + item.qty, 0);
-        const cartCount = document.getElementById('cartCount');
-        if (cartCount) cartCount.textContent = total;
-      }
+function removeFromCart(id) {
+  state.cart = state.cart.filter(item => Number(item.id) !== Number(id));
+  updateCartCount();
+  renderCart();
+  renderCartPopup();
+}
 
-      function renderProducts() {
-        const grid = document.getElementById('productsGrid');
-        if (!grid) return;
-        if (!state.products.length) {
-          grid.innerHTML = '<div class="empty-state">Nenhum produto cadastrado.</div>';
-          return;
-        }
-        grid.innerHTML = state.products.map(p => `
-          <article class="product-card">
-            <div class="product-image-wrap">
-              <img src="${escapeAttr(p.image || DEFAULT_IMAGE)}" alt="${escapeAttr(p.name)}" referrerpolicy="no-referrer">
-              <span class="product-category">${escapeHtml(p.category || 'Geral')}</span>
-            </div>
-            <div class="product-body">
-              <h3>${escapeHtml(p.name)}</h3>
-              <p class="product-desc">${escapeHtml(p.description || '')}</p>
-              <div class="price">${formatBRL(p.price)}</div>
-              <div class="stock-line">
-                <span class="stock-dot ${Number(p.stock) > 0 ? '' : 'off'}"></span>
-                <span>${Number(p.stock) > 0 ? `${Number(p.stock)} disponíveis` : 'Esgotado'}</span>
-              </div>
-              <div class="qty-row">
-                <div class="qty-box">
-                  <button onclick="changeQty(${p.id}, -1)">-</button>
-                  <input id="qty-${p.id}" type="number" value="1" min="1" max="${p.stock}">
-                  <button onclick="changeQty(${p.id}, 1)">+</button>
-                </div>
-                <button class="primary-btn" onclick="addToCart(${p.id})" ${Number(p.stock) <= 0 ? 'disabled' : ''}>Adicionar</button>
-              </div>
-            </div>
-          </article>`).join('');
-      }
+function cartTotal() {
+  return state.cart.reduce((sum, item) => sum + Number(item.price || 0) * Number(item.qty || 0), 0);
+}
 
-      function changeQty(id, delta) {
-        const input = document.getElementById(`qty-${id}`);
-        if (input) input.value = Math.max(1, Math.min(Number(input.max || 999), Number(input.value || 1) + delta));
-      }
+function renderCart() {
+  const box = document.getElementById('cartContent');
+  if (!box) return;
 
-      function addToCart(id) {
-        const product = state.products.find(p => Number(p.id) === Number(id));
-        const input = document.getElementById(`qty-${id}`);
-        const qty = Math.max(1, Number(input?.value || 1));
-        if (!product) return;
+  if (!state.cart.length) {
+    box.innerHTML = '<div class="empty-state">Seu carrinho está vazio.</div>';
+    return;
+  }
 
-        const existing = state.cart.find(item => Number(item.id) === Number(id));
-        if ((existing ? existing.qty : 0) + qty > Number(product.stock)) {
-          alert(`Tem apenas ${product.stock} unidades disponíveis.`);
-          return;
-        }
+  const items = state.cart.map(item => `
+    <div class="cart-card">
+      <img src="${escapeAttr(item.image || DEFAULT_IMAGE)}" alt="${escapeAttr(item.name || 'Produto')}" referrerpolicy="no-referrer">
+      <div>
+        <strong>${escapeHtml(item.name || 'Produto')}</strong>
+        <div class="muted">Qtd: ${Number(item.qty)}</div>
+        <div class="price">${formatBRL(Number(item.price || 0) * Number(item.qty || 0))}</div>
+      </div>
+      <button class="delete-btn" onclick="removeFromCart(${Number(item.id)})">Remover</button>
+    </div>
+  `).join('');
 
-        if (existing) existing.qty += qty;
-        else state.cart.push({ ...product, qty });
+  box.innerHTML = `
+    ${items}
 
-        if (input) input.value = 1;
-        updateCartCount();
-        renderCartPopup();
-        openCartPopup();
-      }
+    <div class="checkout-highlight">
+      <div class="checkout-badge">FINALIZAR PEDIDO</div>
 
-      function openCartPopup() {
-        document.getElementById('cartPopup')?.classList.remove('hidden');
-        renderCartPopup();
-      }
+      <h3 class="checkout-title">Falta muito pouco para concluir sua compra</h3>
+      <p class="checkout-subtitle">
+        Preencha seus dados abaixo e envie seu pedido direto pelo WhatsApp.
+      </p>
 
-      function closeCartPopup() {
-        document.getElementById('cartPopup')?.classList.add('hidden');
-      }
+      <div class="checkout-total-box">
+        <span>Total do pedido</span>
+        <strong>${formatBRL(cartTotal())}</strong>
+      </div>
 
-      function renderCartPopup() {
-        const box = document.getElementById('cartPopupContent');
-        if (!box) return;
-        if (!state.cart.length) {
-          box.innerHTML = '<div class="empty-state">Seu carrinho está vazio.</div>';
-          return;
-        }
-        box.innerHTML = `<div class="popup-items">` + state.cart.map(item => `
-          <div class="cart-card">
-            <img src="${escapeAttr(item.image || DEFAULT_IMAGE)}" alt="${escapeAttr(item.name)}">
-            <div>
-              <strong>${escapeHtml(item.name)}</strong>
-              <div class="muted">Qtd: ${item.qty}</div>
-              <div class="price">${formatBRL(item.price * item.qty)}</div>
-            </div>
-          </div>`).join('') + `</div><div class="checkout-box"><strong>Total: ${formatBRL(state.cart.reduce((s, i) => s + (i.price * i.qty), 0))}</strong></div>`;
-      }
+      <div class="checkout-form">
+        <div class="checkout-field">
+          <label for="customerFirstName">Nome</label>
+          <input id="customerFirstName" type="text" placeholder="Seu nome">
+        </div>
 
-      function renderCart() {
-        const box = document.getElementById('cartContent');
-        if (!box) return;
-        if (!state.cart.length) {
-          box.innerHTML = '<div class="empty-state">Seu carrinho está vazio.</div>';
-          return;
-        }
-        box.innerHTML = state.cart.map(item => `
-          <div class="cart-card">
-            <img src="${escapeAttr(item.image || DEFAULT_IMAGE)}">
-            <div><strong>${escapeHtml(item.name)}</strong><br>Qtd: ${item.qty}</div>
-            <button class="delete-btn" onclick="removeFromCart(${item.id})">Remover</button>
-          </div>`).join('') + `
-          <div class="checkout-highlight">
-            <h3>Total: ${formatBRL(state.cart.reduce((s, i) => s + (i.price * i.qty), 0))}</h3>
-            <div class="checkout-form">
-              <label>Nome <input id="customerFirstName" type="text" placeholder="Seu nome"></label>
-              <label>Sobrenome <input id="customerLastName" type="text" placeholder="Seu sobrenome"></label>
-            </div>
-            <button class="checkout-whatsapp-btn" onclick="finishOrder()">Fechar pedido no WhatsApp</button>
-          </div>`;
-      }
+        <div class="checkout-field">
+          <label for="customerLastName">Sobrenome</label>
+          <input id="customerLastName" type="text" placeholder="Seu sobrenome">
+        </div>
+      </div>
 
-      function removeFromCart(id) {
-        state.cart = state.cart.filter(i => Number(i.id) !== Number(id));
-        updateCartCount(); renderCart(); renderCartPopup();
-      }
+      <button class="checkout-whatsapp-btn" onclick="finishOrder()">
+        <span class="whatsapp-icon">🟢</span>
+        <span>Fechar pedido no WhatsApp</span>
+      </button>
 
-      async function finishOrder() {
-        const nome = document.getElementById('customerFirstName')?.value.trim();
-        const sobrenome = document.getElementById('customerLastName')?.value.trim();
-        if (!nome || !sobrenome) return alert("Preencha nome e sobrenome.");
-        let message = `Olá! Pedido de ${nome} ${sobrenome}:%0A%0A`;
-        state.cart.forEach(i => message += `• ${i.name} (${i.qty}x) - ${formatBRL(i.price * i.qty)}%0A`);
-        message += `%0A*Total: ${formatBRL(state.cart.reduce((s, i) => s + (i.price * i.qty), 0))}*`;
-        window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${message}`, '_blank');
-      }
+      <p class="checkout-note">
+        Você será direcionado para o WhatsApp com seu pedido pronto para envio.
+      </p>
+    </div>
+  `;
+}
 
-      function renderAdmin() {
-        const adminList = document.getElementById('adminList');
-        if (!adminList) return;
-        adminList.innerHTML = state.products.map(p => `
-          <div class="admin-item">
-            <span>${escapeHtml(p.name)} (Estoque: ${p.stock})</span>
-            <button class="delete-btn" onclick="copyProductJson(${p.id})">Copiar JSON</button>
-          </div>`).join('');
-      }
+function openCartPopup() {
+  const popup = document.getElementById('cartPopup');
+  if (!popup) return;
+  popup.classList.remove('hidden');
+  renderCartPopup();
+}
 
-      function copyProductJson(id) {
-        const p = state.products.find(prod => prod.id == id);
-        navigator.clipboard.writeText(JSON.stringify(p, null, 2)).then(() => alert('JSON Copiado!'));
-      }
+function closeCartPopup() {
+  const popup = document.getElementById('cartPopup');
+  if (!popup) return;
+  popup.classList.add('hidden');
+}
 
-      async function exportPDF() {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-        doc.text("SABRINA BEAUTY - CATÁLOGO", 10, 10);
-        let y = 20;
-        state.products.forEach(p => { doc.text(`${p.name} - ${formatBRL(p.price)}`, 10, y); y += 10; });
-        doc.save('catalogo.pdf');
-      }
+function renderCartPopup() {
+  const box = document.getElementById('cartPopupContent');
+  if (!box) return;
 
-      function bindEvents() {
-        document.querySelectorAll('.nav-btn').forEach(btn => btn.addEventListener('click', () => setView(btn.dataset.view)));
-        document.getElementById('goShop').onclick = () => setView('shop');
-        document.getElementById('openCart').onclick = () => setView('cart');
-        document.getElementById('backToShop').onclick = () => setView('shop');
-        document.getElementById('closeCartPopup').onclick = closeCartPopup;
-        document.getElementById('goToCheckout').onclick = () => { setView('cart'); closeCartPopup(); };
-        document.getElementById('exportPdfBtn').onclick = exportPDF;
-      }
+  if (!state.cart.length) {
+    box.innerHTML = '<div class="empty-state">Seu carrinho está vazio.</div>';
+    return;
+  }
 
-      window.changeQty = changeQty;
-      window.addToCart = addToCart;
-      window.removeFromCart = removeFromCart;
-      window.finishOrder = finishOrder;
-      window.copyProductJson = copyProductJson;
+  box.innerHTML = `
+    <div class="popup-items">
+      ${state.cart.map(item => `
+        <div class="cart-card">
+          <img src="${escapeAttr(item.image || DEFAULT_IMAGE)}" alt="${escapeAttr(item.name || 'Produto')}" referrerpolicy="no-referrer">
+          <div>
+            <strong>${escapeHtml(item.name || 'Produto')}</strong>
+            <div class="muted">Qtd: ${Number(item.qty)}</div>
+            <div class="price">${formatBRL(Number(item.price || 0) * Number(item.qty || 0))}</div>
+          </div>
+          <button class="delete-btn" onclick="removeFromCart(${Number(item.id)})">Remover</button>
+        </div>
+      `).join('')}
+    </div>
 
-      bindEvents();
-      loadProductsFromServer();
-    </script>
-  </body>
-</html>
+    <div class="checkout-box">
+      <p class="muted">Total do pedido</p>
+      <div class="summary-total">${formatBRL(cartTotal())}</div>
+    </div>
+  `;
+}
+
+function goToCheckoutScreen() {
+  closeCartPopup();
+  setView('cart');
+  renderCart();
+}
+
+async function finishOrder() {
+  const firstName = document.getElementById('customerFirstName')?.value.trim();
+  const lastName = document.getElementById('customerLastName')?.value.trim();
+
+  if (!firstName || !lastName) {
+    alert('Preencha nome e sobrenome para continuar.');
+    return;
+  }
+
+  if (!state.cart.length) {
+    alert('Seu carrinho está vazio.');
+    return;
+  }
+
+  try {
+    const stockResp = await fetch('/api/update-stock', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        items: state.cart.map(item => ({
+          id: item.id,
+          qty: item.qty
+        }))
+      })
+    });
+
+    const stockResult = await stockResp.json();
+
+    if (!stockResp.ok) {
+      alert(stockResult.error || 'Não foi possível atualizar o estoque.');
+      return;
+    }
+  } catch (err) {
+    alert('Erro ao tentar atualizar o estoque.');
+    return;
+  }
+
+  let message = `Olá Sabrina Beauty! Meu nome é ${encodeURIComponent(firstName)} ${encodeURIComponent(lastName)}.%0A%0AGostaria de fazer um pedido:%0A%0A`;
+
+  state.cart.forEach(item => {
+    const totalItem = Number(item.price || 0) * Number(item.qty || 0);
+    message += `• ${encodeURIComponent(item.name)} (${item.qty}x) - ${encodeURIComponent(formatBRL(totalItem))}%0A`;
+  });
+
+  message += `%0A*Total: ${encodeURIComponent(formatBRL(cartTotal()))}*`;
+
+  state.cart = [];
+  updateCartCount();
+  renderCart();
+  renderCartPopup();
+  closeCartPopup();
+  setView('shop');
+  loadProductsFromServer();
+
+  window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${message}`, '_blank');
+}
+
+function renderAdmin() {
+  const adminList = document.getElementById('adminList');
+  if (!adminList) return;
+
+  if (!state.products.length) {
+    adminList.innerHTML = '<div class="empty-state">Nenhum produto cadastrado.</div>';
+    return;
+  }
+
+  adminList.innerHTML = `
+    <div class="empty-state" style="margin-bottom:16px;">
+      Para atualizar o catálogo para todo mundo, edite o arquivo <strong>products.json</strong> no GitHub.
+    </div>
+
+    ${state.products.map(product => `
+      <div class="admin-item">
+        <img src="${escapeAttr(product.image || DEFAULT_IMAGE)}" alt="${escapeAttr(product.name || 'Produto')}" referrerpolicy="no-referrer">
+
+        <div class="admin-fields">
+          <input type="text" value="${escapeAttr(product.name || '')}" readonly>
+          <textarea readonly>${escapeHtml(product.description || '')}</textarea>
+
+          <div class="admin-inline">
+            <input type="number" step="0.01" value="${Number(product.price || 0)}" readonly>
+            <input type="number" step="1" value="${Number(product.stock || 0)}" readonly>
+          </div>
+
+          <input type="text" value="${escapeAttr(product.category || '')}" readonly>
+          <input type="text" value="${escapeAttr(product.image || '')}" readonly>
+        </div>
+
+        <div class="admin-actions">
+          <button class="delete-btn" onclick="copyProductJson(${Number(product.id)})">Copiar JSON</button>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function copyProductJson(id) {
+  const product = state.products.find(p => Number(p.id) === Number(id));
+  if (!product) return;
+
+  const json = JSON.stringify(product, null, 2);
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(json)
+      .then(() => alert('JSON do produto copiado.'))
+      .catch(() => fallbackCopyText(json));
+  } else {
+    fallbackCopyText(json);
+  }
+}
+
+function fallbackCopyText(text) {
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  try {
+    document.execCommand('copy');
+    alert('JSON do produto copiado.');
+  } catch {
+    alert('Não foi possível copiar automaticamente.');
+  }
+
+  document.body.removeChild(textarea);
+}
+
+function addProductFromForm() {
+  alert('Para adicionar produtos que todos vejam, inclua o item no arquivo products.json no GitHub.');
+}
+
+function clearForm() {
+  ['newName', 'newPrice', 'newStock', 'newCategory', 'newDescription', 'newImageUrl'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+}
+
+async function exportPDF() {
+  const jspdf = window.jspdf;
+  if (!jspdf) {
+    alert('O gerador de PDF ainda está carregando.');
+    return;
+  }
+
+  const { jsPDF } = jspdf;
+  const doc = new jsPDF();
+
+  doc.setFillColor(10, 10, 10);
+  doc.rect(0, 0, 210, 55, 'F');
+
+  doc.setTextColor(212, 175, 55);
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(26);
+  doc.text('SABRINA BEAUTY', 105, 25, { align: 'center' });
+
+  doc.setFontSize(10);
+  doc.setTextColor(210, 210, 210);
+  doc.text('CATÁLOGO DE PRODUTOS', 105, 34, { align: 'center' });
+
+  let y = 70;
+
+  for (const product of state.products) {
+    if (y > 250) {
+      doc.addPage();
+      y = 20;
+    }
+
+    doc.setFontSize(14);
+    doc.setTextColor(20, 20, 20);
+    doc.setFont('helvetica', 'bold');
+    doc.text(String(product.name || 'Produto'), 14, y);
+    y += 7;
+
+    doc.setFontSize(10);
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(90, 90, 90);
+    doc.text(`Categoria: ${String(product.category || 'Geral')}`, 14, y);
+    y += 6;
+
+    doc.text(`Preço: ${formatBRL(product.price)}`, 14, y);
+    y += 6;
+
+    doc.text(`Estoque: ${Number(product.stock || 0)}`, 14, y);
+    y += 6;
+
+    const descLines = doc.splitTextToSize(String(product.description || 'Sem descrição.'), 180);
+    doc.text(descLines, 14, y);
+    y += Math.max(12, descLines.length * 5 + 6);
+
+    doc.setDrawColor(220, 220, 220);
+    doc.line(14, y, 196, y);
+    y += 10;
+  }
+
+  doc.save('catalogo-sabrina-beauty.pdf');
+}
+
+function escapeHtml(text) {
+  return String(text)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;')
+    .replaceAll("'", '&#039;');
+}
+
+function escapeAttr(text) {
+  return escapeHtml(text);
+}
+
+function bindEvents() {
+  document.getElementById('goShop')?.addEventListener('click', () => setView('shop'));
+  document.getElementById('openAdmin')?.addEventListener('click', () => setView('admin'));
+  document.getElementById('openCart')?.addEventListener('click', () => setView('cart'));
+  document.getElementById('backToShop')?.addEventListener('click', () => setView('shop'));
+
+  document.querySelectorAll('.nav-btn').forEach(btn => {
+    btn.addEventListener('click', () => setView(btn.dataset.view));
+  });
+
+  document.getElementById('addProductBtn')?.addEventListener('click', addProductFromForm);
+  document.getElementById('exportPdfBtn')?.addEventListener('click', exportPDF);
+
+  document.getElementById('closeCartPopup')?.addEventListener('click', closeCartPopup);
+  document.getElementById('goToCheckout')?.addEventListener('click', goToCheckoutScreen);
+}
+
+window.changeQty = changeQty;
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.finishOrder = finishOrder;
+window.copyProductJson = copyProductJson;
+
+bindEvents();
+renderCart();
+renderCartPopup();
+updateCartCount();
+setView('shop');
+loadProductsFromServer();
