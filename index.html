@@ -3,10 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Catálogo Sabrina Beauty com carrinho, painel de gestão e pedidos por WhatsApp."
-    />
+    <meta name="description" content="Catálogo Sabrina Beauty com carrinho, painel de gestão e pedidos por WhatsApp." />
     <title>Sabrina Beauty</title>
 
     <link rel="manifest" href="manifest.json" />
@@ -15,10 +12,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="styles.css" />
 
@@ -27,6 +21,19 @@
   </head>
 
   <body>
+    <div id="installPrompt" class="install-prompt hidden">
+      <div class="install-prompt-box">
+        <div>
+          <strong>Instalar Sabrina Beauty</strong>
+          <p>Adicione o site à tela inicial e use como aplicativo.</p>
+        </div>
+        <div class="install-prompt-actions">
+          <button id="closeInstallPrompt" class="secondary-btn" type="button">Agora não</button>
+          <button id="installAppBtn" class="primary-btn" type="button">Instalar</button>
+        </div>
+      </div>
+    </div>
+
     <div class="bg-decoration bg-1"></div>
     <div class="bg-decoration bg-2"></div>
     <div class="bg-decoration bg-3"></div>
@@ -55,7 +62,6 @@
           <div class="divider"></div>
           <p>Escolha seus produtos, acompanhe o carrinho e finalize pelo WhatsApp.</p>
         </div>
-
         <div id="productsGrid" class="products-grid"></div>
       </section>
 
@@ -75,40 +81,14 @@
 
         <section class="card admin-form">
           <h3>Novo produto</h3>
-
           <div class="form-grid">
-            <label>
-              <span>Nome</span>
-              <input id="newName" type="text" placeholder="Ex: Óleo de Rosa Mosqueta" />
-            </label>
-
-            <label>
-              <span>Preço (R$)</span>
-              <input id="newPrice" type="number" step="0.01" placeholder="0.00" />
-            </label>
-
-            <label>
-              <span>Categoria</span>
-              <input id="newCategory" type="text" placeholder="Ex: Skincare" />
-            </label>
-
-            <label>
-              <span>Estoque</span>
-              <input id="newStock" type="number" step="1" placeholder="0" />
-            </label>
-
-            <label class="full">
-              <span>Descrição</span>
-              <textarea id="newDescription" placeholder="Descreva o produto..."></textarea>
-            </label>
-
-            <label class="full">
-              <span>Imagem</span>
-              <input id="newImageUrl" type="text" placeholder="Cole a URL da imagem" />
-              <small>Você também pode deixar vazio e usar a imagem padrão.</small>
-            </label>
+            <label><span>Nome</span><input id="newName" type="text" placeholder="Ex: Óleo de Rosa Mosqueta" /></label>
+            <label><span>Preço (R$)</span><input id="newPrice" type="number" step="0.01" placeholder="0.00" /></label>
+            <label><span>Categoria</span><input id="newCategory" type="text" placeholder="Ex: Skincare" /></label>
+            <label><span>Estoque</span><input id="newStock" type="number" step="1" placeholder="0" /></label>
+            <label class="full"><span>Descrição</span><textarea id="newDescription" placeholder="Descreva o produto..."></textarea></label>
+            <label class="full"><span>Imagem</span><input id="newImageUrl" type="text" placeholder="Cole a URL da imagem" /></label>
           </div>
-
           <button class="primary-btn" id="addProductBtn">Cadastrar produto</button>
         </section>
 
@@ -125,9 +105,7 @@
           <h3>Seu carrinho</h3>
           <button id="closeCartPopup" class="icon-btn" type="button" aria-label="Fechar popup">✕</button>
         </div>
-
         <div id="cartPopupContent" class="cart-popup-content"></div>
-
         <div class="cart-popup-footer">
           <button id="goToCheckout" class="primary-btn" type="button">Fechar pedido</button>
         </div>
@@ -137,6 +115,45 @@
     <nav class="bottom-nav">
       <button data-view="shop" class="nav-btn active">Loja</button>
       <button data-view="cart" class="nav-btn">Pedido</button>
-      </nav>
+      <button data-view="admin" class="nav-btn">Gestão</button>
+    </nav>
+
+    <script>
+      // 1. Registro do Service Worker e Lógica de Instalação
+      let deferredPrompt;
+      const installPrompt = document.getElementById('installPrompt');
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .catch(err => console.error('Erro SW:', err));
+        });
+      }
+
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        installPrompt.classList.remove('hidden');
+      });
+
+      document.getElementById('installAppBtn')?.addEventListener('click', async () => {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          if (outcome === 'accepted') {
+            console.log('Usuário aceitou a instalação');
+          }
+          deferredPrompt = null;
+          installPrompt.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('closeInstallPrompt')?.addEventListener('click', () => {
+        installPrompt.classList.add('hidden');
+      });
+
+      // Aqui continua o restante do seu script.js que já unificamos anteriormente...
+      // (Funções renderProducts, addToCart, finishOrder, etc.)
+    </script>
   </body>
 </html>
