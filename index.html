@@ -9,6 +9,10 @@
     />
     <title>Sabrina Beauty</title>
 
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#050505" />
+    <link rel="apple-touch-icon" href="imagens/icon-192.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -37,8 +41,6 @@
       </button>
 
       <div class="header-actions">
-        <!-- <button class="icon-btn" id="openAdmin">⚙️</button> -->
-
         <button class="icon-btn cart-btn" id="openCart" aria-label="Abrir carrinho">
           🛍️
           <span class="badge" id="cartCount">0</span>
@@ -47,7 +49,6 @@
     </header>
 
     <main class="container">
-      <!-- LOJA -->
       <section class="view active" id="view-shop">
         <div class="section-title">
           <h2>Coleção Exclusiva</h2>
@@ -58,13 +59,11 @@
         <div id="productsGrid" class="products-grid"></div>
       </section>
 
-      <!-- PEDIDO -->
       <section class="view" id="view-cart">
         <button class="link-back" id="backToShop">← Continuar comprando</button>
         <div id="cartContent"></div>
       </section>
 
-      <!-- ADMIN -->
       <section class="view" id="view-admin">
         <div class="admin-header">
           <div>
@@ -120,7 +119,6 @@
       </section>
     </main>
 
-    <!-- POPUP DO CARRINHO -->
     <div id="cartPopup" class="cart-popup hidden">
       <div class="cart-popup-box">
         <div class="cart-popup-header">
@@ -136,11 +134,9 @@
       </div>
     </div>
 
-    <!-- NAVEGAÇÃO -->
     <nav class="bottom-nav">
       <button data-view="shop" class="nav-btn active">Loja</button>
       <button data-view="cart" class="nav-btn">Pedido</button>
-      <!-- <button data-view="admin" class="nav-btn">Gestão</button> -->
-    </nav>
+      </nav>
   </body>
 </html>
