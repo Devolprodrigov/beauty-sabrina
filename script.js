@@ -10,6 +10,7 @@ const state = {
 async function loadProductsFromServer() {
   try {
     const response = await fetch('products.json?v=' + Date.now());
+
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
