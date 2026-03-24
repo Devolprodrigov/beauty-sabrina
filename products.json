@@ -39,7 +39,7 @@
     "id": 5,
     "name": "ALLEVA GELEIA HIDRAT COR",
     "price": 22.9,
-    "stock": 10,
+    "stock": 9,
     "category": "Skincare",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/geleia.jpeg",
     "description": "Geleia hidratante corporal que ajuda a manter a pele macia, perfumada e com toque sedoso."
@@ -255,7 +255,7 @@
     "id": 29,
     "name": "COLA BEAUTIFY OXE",
     "price": 65.9,
-    "stock": 3,
+    "stock": 2,
     "category": "Cílios",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/cola-oxe.jpeg",
     "description": "Cola profissional para cílios com ótima retenção e secagem eficiente."
@@ -309,7 +309,7 @@
     "id": 35,
     "name": "FITA SILICONADA",
     "price": 10.9,
-    "stock": 50,
+    "stock": 46,
     "category": "Descartáveis",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/fita-siliconada.jpeg",
     "description": "Fita siliconada pequena para procedimentos com cílios e acabamento delicado."
@@ -453,7 +453,7 @@
     "id": 51,
     "name": "PAC FITA TRANSPORE",
     "price": 5,
-    "stock": 24,
+    "stock": 22,
     "category": "Descartáveis",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/FITA TRANSPORE.jpeg",
     "description": "Fita transpore para fixação leve e apoio em procedimentos."
@@ -561,7 +561,7 @@
     "id": 63,
     "name": "REMOVEDOR FUNMIX 5G",
     "price": 25.9,
-    "stock": 3,
+    "stock": 2,
     "category": "Cílios",
     "image": "https://devolprodrigov.github.io/beauty-sabrina/imagens/glue-removedor.jpeg",
     "description": "Removedor para cola de cílios com ação prática e eficiente."
