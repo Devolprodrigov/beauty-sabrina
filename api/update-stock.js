@@ -1,7 +1,6 @@
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método não permitido.' });
+    return res.status(405).json({ error: 'Método não permitido' });
   }
 
   try {
@@ -19,26 +18,25 @@ export default async function handler(req, res) {
 
     if (!owner || !repo || !token) {
       return res.status(500).json({
-        error: 'Variáveis GITHUB_OWNER, GITHUB_REPO ou GITHUB_TOKEN não configuradas.'
+        error: 'Variáveis do GitHub não configuradas.'
       });
     }
 
-    const githubHeaders = {
+    const headers = {
       Authorization: `Bearer ${token}`,
       Accept: 'application/vnd.github+json',
       'X-GitHub-Api-Version': '2022-11-28'
     };
 
-    // 1) Lê o products.json atual
     const getResp = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/contents/${path}?ref=${branch}`,
-      { headers: githubHeaders }
+      { headers }
     );
 
     if (!getResp.ok) {
       const details = await getResp.text();
       return res.status(500).json({
-        error: 'Erro ao ler products.json no GitHub.',
+        error: 'Erro ao ler products.json',
         details
       });
     }
@@ -47,9 +45,9 @@ export default async function handler(req, res) {
     const currentContent = Buffer.from(fileData.content, 'base64').toString('utf8');
     const products = JSON.parse(currentContent);
 
-    // 2) Baixa o estoque
     for (const orderItem of items) {
       const product = products.find(p => Number(p.id) === Number(orderItem.id));
+
       if (!product) {
         return res.status(400).json({
           error: `Produto com id ${orderItem.id} não encontrado.`
@@ -74,7 +72,6 @@ export default async function handler(req, res) {
       product.stock = currentStock - qty;
     }
 
-    // 3) Salva o arquivo atualizado
     const updatedContent = Buffer.from(
       JSON.stringify(products, null, 2),
       'utf8'
@@ -85,7 +82,7 @@ export default async function handler(req, res) {
       {
         method: 'PUT',
         headers: {
-          ...githubHeaders,
+          ...headers,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
@@ -100,7 +97,7 @@ export default async function handler(req, res) {
     if (!putResp.ok) {
       const details = await putResp.text();
       return res.status(500).json({
-        error: 'Erro ao salvar products.json no GitHub.',
+        error: 'Erro ao salvar products.json',
         details
       });
     }
