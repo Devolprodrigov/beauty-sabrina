@@ -7,10 +7,32 @@
       name="description"
       content="Catálogo Sabrina Beauty com carrinho, painel de gestão e pedidos por WhatsApp."
     />
+
     <title>Sabrina Beauty</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://beauty-sabrina.vercel.app/" />
+    <meta property="og:title" content="Sabrina Beauty | Catálogo Online" />
+    <meta
+      property="og:description"
+      content="Confira nosso catálogo com carrinho, painel de gestão e pedidos via WhatsApp."
+    />
+    <meta property="og:image" content="https://beauty-sabrina.vercel.app/og-image.jpg" />
+    <meta property="og:image:alt" content="Logo e apresentação do site Sabrina Beauty" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://beauty-sabrina.vercel.app/" />
+    <meta name="twitter:title" content="Sabrina Beauty | Catálogo Online" />
+    <meta
+      name="twitter:description"
+      content="Confira nosso catálogo com carrinho e pedidos via WhatsApp."
+    />
+    <meta name="twitter:image" content="https://beauty-sabrina.vercel.app/og-image.jpg" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@400;700&display=swap"
       rel="stylesheet"
@@ -37,8 +59,6 @@
       </button>
 
       <div class="header-actions">
-        <!-- <button class="icon-btn" id="openAdmin">⚙️</button> -->
-
         <button class="icon-btn cart-btn" id="openCart" aria-label="Abrir carrinho">
           🛍️
           <span class="badge" id="cartCount">0</span>
@@ -47,7 +67,6 @@
     </header>
 
     <main class="container">
-      <!-- LOJA -->
       <section class="view active" id="view-shop">
         <div class="section-title">
           <h2>Coleção Exclusiva</h2>
@@ -58,13 +77,11 @@
         <div id="productsGrid" class="products-grid"></div>
       </section>
 
-      <!-- PEDIDO -->
       <section class="view" id="view-cart">
         <button class="link-back" id="backToShop">← Continuar comprando</button>
         <div id="cartContent"></div>
       </section>
 
-      <!-- ADMIN -->
       <section class="view" id="view-admin">
         <div class="admin-header">
           <div>
@@ -120,7 +137,6 @@
       </section>
     </main>
 
-    <!-- POPUP DO CARRINHO -->
     <div id="cartPopup" class="cart-popup hidden">
       <div class="cart-popup-box">
         <div class="cart-popup-header">
@@ -136,11 +152,9 @@
       </div>
     </div>
 
-    <!-- NAVEGAÇÃO -->
     <nav class="bottom-nav">
       <button data-view="shop" class="nav-btn active">Loja</button>
       <button data-view="cart" class="nav-btn">Pedido</button>
-      <!-- <button data-view="admin" class="nav-btn">Gestão</button> -->
     </nav>
   </body>
 </html>
