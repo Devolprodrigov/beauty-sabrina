@@ -10,7 +10,6 @@ const state = {
 async function loadProductsFromServer() {
   try {
     const response = await fetch('products.json?v=' + Date.now());
-
     if (!response.ok) {
       throw new Error(`HTTP ${response.status}`);
     }
@@ -263,40 +262,12 @@ function goToCheckoutScreen() {
   renderCart();
 }
 
-async function finishOrder() {
+function finishOrder() {
   const firstName = document.getElementById('customerFirstName')?.value.trim();
   const lastName = document.getElementById('customerLastName')?.value.trim();
 
   if (!firstName || !lastName) {
     alert('Preencha nome e sobrenome para continuar.');
-    return;
-  }
-
-  if (!state.cart.length) {
-    alert('Seu carrinho está vazio.');
-    return;
-  }
-
-  try {
-    const stockResp = await fetch('/api/update-stock', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        items: state.cart.map(item => ({
-          id: item.id,
-          qty: item.qty
-        }))
-      })
-    });
-
-    const stockResult = await stockResp.json();
-
-    if (!stockResp.ok) {
-      alert(stockResult.error || 'Não foi possível atualizar o estoque.');
-      return;
-    }
-  } catch (err) {
-    alert('Erro ao tentar atualizar o estoque.');
     return;
   }
 
@@ -315,7 +286,6 @@ async function finishOrder() {
   renderCartPopup();
   closeCartPopup();
   setView('shop');
-  loadProductsFromServer();
 
   window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${message}`, '_blank');
 }
