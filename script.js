@@ -289,15 +289,14 @@ async function finishOrder() {
       })
     });
 
-    const stockResult = await stockResp.json();
-
     if (!stockResp.ok) {
-      alert(stockResult.error || 'Não foi possível atualizar o estoque.');
-      return;
+       const stockResult = await stockResp.json();
+       alert(stockResult.error || 'Não foi possível atualizar o estoque.');
+       return;
     }
   } catch (err) {
-    alert('Erro ao tentar atualizar o estoque.');
-    return;
+    console.error('Erro ao atualizar estoque:', err);
+    // Prosseguimos mesmo assim para não perder a venda
   }
 
   let message = `Olá Sabrina Beauty! Meu nome é ${encodeURIComponent(firstName)} ${encodeURIComponent(lastName)}.%0A%0AGostaria de fazer um pedido:%0A%0A`;
@@ -309,6 +308,12 @@ async function finishOrder() {
 
   message += `%0A*Total: ${encodeURIComponent(formatBRL(cartTotal()))}*`;
 
+  // --- AJUSTE PARA COMPUTADOR ---
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const waUrl = isMobile 
+    ? `https://api.whatsapp.com/send?phone=${WHATSAPP_PRIMARY}&text=${message}`
+    : `https://web.whatsapp.com/send?phone=${WHATSAPP_PRIMARY}&text=${message}`;
+
   state.cart = [];
   updateCartCount();
   renderCart();
@@ -317,7 +322,7 @@ async function finishOrder() {
   setView('shop');
   loadProductsFromServer();
 
-  window.open(`https://wa.me/${WHATSAPP_PRIMARY}?text=${message}`, '_blank');
+  window.open(waUrl, '_blank');
 }
 
 function renderAdmin() {
