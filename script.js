@@ -300,7 +300,7 @@ async function finishOrder() {
     return;
   }
 
-  // 🧾 Monta mensagem
+  // 🧾 Mensagem
   let message = `Olá Sabrina Beauty! Meu nome é ${encodeURIComponent(firstName)} ${encodeURIComponent(lastName)}.%0A%0AGostaria de fazer um pedido:%0A%0A`;
 
   state.cart.forEach(item => {
@@ -310,15 +310,15 @@ async function finishOrder() {
 
   message += `%0A*Total: ${encodeURIComponent(formatBRL(cartTotal()))}*`;
 
-  // 🔥 DETECTA DISPOSITIVO
+  // 🔥 Detecta dispositivo
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 
-  // 🔥 URL MAIS COMPATÍVEL (Safari incluso)
+  // 🔥 URL compatível (Safari incluso)
   const url = isMobile
     ? `https://api.whatsapp.com/send?phone=${WHATSAPP_PRIMARY}&text=${message}`
     : `https://web.whatsapp.com/send?phone=${WHATSAPP_PRIMARY}&text=${message}`;
 
-  // 🔄 Limpa carrinho antes de redirecionar
+  // 🔄 Limpa carrinho
   state.cart = [];
   updateCartCount();
   renderCart();
@@ -327,14 +327,12 @@ async function finishOrder() {
   setView('shop');
   loadProductsFromServer();
 
-  // 🚀 ABERTURA CORRETA (Safari precisa disso)
+  // 🚀 Abre WhatsApp corretamente
   if (isMobile) {
-    window.location.href = url;
+    window.location.href = url; // Safari precisa disso
   } else {
     window.open(url, '_blank');
   }
-}
-  openWhatsApp(message);
 }
 
 function renderAdmin() {
